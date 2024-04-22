@@ -1,0 +1,452 @@
+[
+    {
+        "id": "demo_angebote",
+        "title": "Angebote",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333806",
+        "estimatedCount": 2,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "crmDemoChannel",
+        "title": "CRM Demo Liste",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2332726",
+        "estimatedCount": 2,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo",
+        "title": "Demoeinträge",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333801",
+        "estimatedCount": 25,
+        "description": "Enthält alle Demodatensätze",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_ir",
+        "title": "Investor Relations",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333810",
+        "estimatedCount": 3,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_katalog",
+        "title": "Katalog",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333808",
+        "estimatedCount": 4,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333866",
+        "title": "Klicks in \"Angebote November\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2334036",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333952",
+        "title": "Klicks in \"Anonymes Tracking\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333988",
+        "estimatedCount": 1,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333974",
+        "title": "Klicks in \"Herzlichen Glückwunsch zum Geburtstag\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333984",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333894",
+        "title": "Klicks in \"Investor Relations November\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2334025",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333879",
+        "title": "Klicks in \"Katalog November\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2334029",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333907",
+        "title": "Klicks in \"Monatlicher Newsletter November\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2334017",
+        "estimatedCount": 1,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333963",
+        "title": "Klicks in \"Ohne Tracking\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333986",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333939",
+        "title": "Klicks in \"Personen-bezogenes Tracking\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333999",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_clicks_2333924",
+        "title": "Klicks in \"Presse-Newsletter November\"",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2334012",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_monthly",
+        "title": "Monatlicher Newsletter",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333812",
+        "estimatedCount": 7,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_presse",
+        "title": "Presse-Newsletter",
+        "isPublic": false,
+        "isVChannel": false,
+        "oid": "2333814",
+        "estimatedCount": 5,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_tooManyHardbounces",
+        "title": "Abgemeldet wg. Hardbounces",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333798",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_consent_nl_tracking_anonymous",
+        "title": "Anonymes Tracking akzeptiert",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333792",
+        "estimatedCount": 3,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_salut_family",
+        "title": "Anrede Familie",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333720",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_salut_female",
+        "title": "Anrede Frau",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333723",
+        "estimatedCount": 24,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_salut_male",
+        "title": "Anrede Herr",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333726",
+        "estimatedCount": 26,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_email_localhost",
+        "title": "E-Mail-Domain localhost",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333803",
+        "estimatedCount": 80,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "can_login",
+        "title": "Frontend Login",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2332773",
+        "estimatedCount": 58,
+        "description": "can login test for login app",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_birthday",
+        "title": "Heute Geburtstag",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333729",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_0",
+        "title": "PLZ 0....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333756",
+        "estimatedCount": 3,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_1",
+        "title": "PLZ 1....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333759",
+        "estimatedCount": 11,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_2",
+        "title": "PLZ 2....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333762",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_3",
+        "title": "PLZ 3....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333765",
+        "estimatedCount": 3,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_4",
+        "title": "PLZ 4....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333768",
+        "estimatedCount": 4,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_5",
+        "title": "PLZ 5....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333771",
+        "estimatedCount": 6,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_6",
+        "title": "PLZ 6....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333774",
+        "estimatedCount": 1,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_7",
+        "title": "PLZ 7....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333777",
+        "estimatedCount": 1,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_8",
+        "title": "PLZ 8....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333780",
+        "estimatedCount": 4,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_plz_9",
+        "title": "PLZ 9....",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333783",
+        "estimatedCount": 3,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_consent_nl_tracking_personal",
+        "title": "Personen-bezogenes Tracking akzeptiert",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333789",
+        "estimatedCount": 7,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_consent_nl_tracking_optout",
+        "title": "Tracking abgelehnt (Opt-Out)",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333795",
+        "estimatedCount": 7,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_wait_optin",
+        "title": "Warten auf Opt-In",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333786",
+        "estimatedCount": 2,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_b",
+        "title": "Wohnort Berlin",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333732",
+        "estimatedCount": 8,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_d",
+        "title": "Wohnort Düsseldorf",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333753",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_f",
+        "title": "Wohnort Frankfurt am Main",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333747",
+        "estimatedCount": 1,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_hh",
+        "title": "Wohnort Hamburg",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333735",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_h",
+        "title": "Wohnort Hannover",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333738",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_k",
+        "title": "Wohnort Köln",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333741",
+        "estimatedCount": 4,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_m",
+        "title": "Wohnort München",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333744",
+        "estimatedCount": 2,
+        "description": "",
+        "customAttributes": {}
+    },
+    {
+        "id": "demo_city_s",
+        "title": "Wohnort Stuttgart",
+        "isPublic": false,
+        "isVChannel": true,
+        "oid": "2333750",
+        "estimatedCount": 0,
+        "description": "",
+        "customAttributes": {}
+    }
+]

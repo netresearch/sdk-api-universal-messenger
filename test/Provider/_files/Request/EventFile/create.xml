@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event id="MY-CUSTOM-EVENT-ID" newsletterGroup="GROUP" skipUsedIDs="true" archiveSkipped="false" archive="false" createdBy="john.doe" createdByDisplayName="John Doe">
+  <destination>
+    <channel>CHANNEL-1</channel>
+    <channel>CHANNEL-2</channel>
+    <vchannel>V-CHANNEL-1</vchannel>
+    <vchannel>V-CHANNEL-2</vchannel>
+    <query>language = "de"</query>
+    <preview service="service">
+      <baseEntry email="test@example.org"/>
+    </preview>
+  </destination>
+  <data mailto="jane.dow@example.org">
+    <email sender="John Doe &lt;john.doe@example.org&gt;" replyto="john.doe@example.org" envelopeFrom="John Doe &lt;john.doe@example.org&gt;" obeyPreferHtml="false" sendBothParts="true" baseUrl="https://example.org/" downloadUrl="https://download.example.org/" trackingMode="off">
+      <subject>Subject</subject>
+      <htmltext inline="false" charset="UTF-8" embedImages="all" baseUrl="https://html.example.org/" downloadUrl="https://html.download.example.org/" linkTracking="false" viewTracking="false" renderCallback="htmlCallbackMethod" restProxyUrl="https://html.proxy.example.org/"><![CDATA[
+<html lang="en">
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <p>Hello World!</p>
+  </body>
+</html>
+]]></htmltext>
+      <plaintext inline="true" charset="UTF-8" baseUrl="https://plain.example.org/" downloadUrl="https://plain.download.example.org/" linkTracking="false" renderCallback="plainCallbackMethod">Hello World!</plaintext>
+      <file name="logo.png" disposition="inline" inline="true">FILE CONTENT</file>
+      <file name="https://example.org/test.png" inline="false"/>
+    </email>
+    <message>Mail message to sent</message>
+  </data>
+  <date format="yyyy-MM-dd">2024-12-31</date>
+  <tag>TAG-1</tag>
+  <tag>TAG-2</tag>
+  <tag>TAG-3</tag>
+</event>

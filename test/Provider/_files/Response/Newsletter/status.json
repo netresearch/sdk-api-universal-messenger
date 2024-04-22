@@ -1,0 +1,13 @@
+{
+    "eventId": "9241b465-349a-431f-9105-d89e3e2ba9e4",
+    "oid": "2622547",
+    "sendState": -1,
+    "sendDate": "2018-11-12|13:45:24",
+    "contacted": 0,
+    "counted": 0,
+    "notContacted": 0,
+    "inQueue": false,
+    "isFailed": true,
+    "isFinished": false,
+    "isStopped": false
+}

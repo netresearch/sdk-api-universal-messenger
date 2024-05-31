@@ -149,6 +149,20 @@ abstract class AbstractApiEndpoint implements EndpointInterface
     }
 
     /**
+     * Perform a POST request.
+     *
+     * @param \Psr\Http\Message\RequestInterface $request The request instance
+     *
+     * @return ResponseInterface
+     *
+     * @throws ClientExceptionInterface
+     */
+    protected function httpPost(\Psr\Http\Message\RequestInterface $request): ResponseInterface
+    {
+        return $this->client->sendRequest($request);
+    }
+
+    /**
      * Returns a list of all entities.
      *
      * @param class-string<TEntity>           $className           The class name of the mapped response
@@ -201,26 +215,31 @@ abstract class AbstractApiEndpoint implements EndpointInterface
     /**
      * Perform a POST request with XML data.
      *
-     * @param RequestInterface $requestType The API request instance
+     * @param RequestInterface $request The API request instance
      *
      * @return ResponseInterface
      *
-     * @throws ClientExceptionInterface
+     * @throws AuthenticationException
+     * @throws DetailedServiceException
      * @throws ServiceException
      */
-    protected function httpPostXml(RequestInterface $requestType): ResponseInterface
+    protected function httpPostXml(RequestInterface $request): ResponseInterface
     {
-        $encodedBody = $this->xmlSerializer->encode($requestType);
+        $encodedBody = $this->xmlSerializer->encode($request);
 
         if ($encodedBody === false) {
             throw new ServiceException('Failed to encode request into XML');
         }
 
-        $request = $this->requestFactory
-            ->createRequest('POST', (string) $this->urlBuilder)
-            ->withHeader('Content-Type', 'text/xml; charset=UTF-8')
-            ->withBody($this->streamFactory->createStream($encodedBody));
+        $requestClosure = function () use ($encodedBody): ResponseInterface {
+            $psrRequest = $this->requestFactory
+                ->createRequest('POST', (string) $this->urlBuilder)
+                ->withHeader('Content-Type', 'text/xml; charset=UTF-8')
+                ->withBody($this->streamFactory->createStream($encodedBody));
 
-        return $this->client->sendRequest($request);
+            return $this->httpPost($psrRequest);
+        };
+
+        return $this->execute($requestClosure);
     }
 }

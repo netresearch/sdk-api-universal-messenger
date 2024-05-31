@@ -12,8 +12,10 @@ declare(strict_types=1);
 namespace Netresearch\Sdk\UniversalMessenger\Api\Actions;
 
 use Netresearch\Sdk\UniversalMessenger\Api\AbstractApiEndpoint;
+use Netresearch\Sdk\UniversalMessenger\Exception\AuthenticationException;
+use Netresearch\Sdk\UniversalMessenger\Exception\DetailedServiceException;
+use Netresearch\Sdk\UniversalMessenger\Exception\ServiceException;
 use Netresearch\Sdk\UniversalMessenger\Request\Event as EventRequest;
-use Psr\Http\Client\ClientExceptionInterface;
 
 /**
  * The /eventFile endpoint.
@@ -42,7 +44,9 @@ class EventFile extends AbstractApiEndpoint
      *
      * @return bool
      *
-     * @throws ClientExceptionInterface
+     * @throws AuthenticationException
+     * @throws DetailedServiceException
+     * @throws ServiceException
      */
     public function event(EventRequest $request): bool
     {

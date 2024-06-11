@@ -79,6 +79,13 @@ class NewsletterStatus extends AbstractEntity
     public bool $inQueue = false;
 
     /**
+     * If the sending is still waiting in the queue and the queue is locked.
+     *
+     * @var bool
+     */
+    public bool $locked = false;
+
+    /**
      * Is failed?
      *
      * @var bool
@@ -98,4 +105,11 @@ class NewsletterStatus extends AbstractEntity
      * @var bool
      */
     public bool $isStopped = false;
+
+    /**
+     * Error message, e.g. when a 404 HTML status code is returned.
+     *
+     * @var string|null
+     */
+    public ?string $error = null;
 }

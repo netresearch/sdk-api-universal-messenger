@@ -55,7 +55,8 @@ class Newsletter extends AbstractApiEndpoint
 
         return $this->findAllEntities(
             NewsletterChannel::class,
-            NewsletterChannelCollection::class
+            NewsletterChannelCollection::class,
+            __FUNCTION__
         );
     }
 
@@ -79,7 +80,8 @@ class Newsletter extends AbstractApiEndpoint
             ->addPath($eventId);
 
         return $this->findEntity(
-            NewsletterStatus::class
+            NewsletterStatus::class,
+            __FUNCTION__
         );
     }
 }

@@ -136,14 +136,17 @@ abstract class AbstractApiEndpoint implements EndpointInterface
     /**
      * Perform a GET request.
      *
+     * @param string $method
+     *
      * @return ResponseInterface
      *
      * @throws ClientExceptionInterface
      */
-    protected function httpGet(): ResponseInterface
+    protected function httpGet(string $method): ResponseInterface
     {
         $request = $this->requestFactory
-            ->createRequest('GET', (string) $this->urlBuilder);
+            ->createRequest('GET', (string) $this->urlBuilder)
+            ->withHeader('X-API-METHOD', $method);
 
         return $this->client->sendRequest($request);
     }
@@ -152,13 +155,18 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      * Perform a POST request.
      *
      * @param \Psr\Http\Message\RequestInterface $request The request instance
+     * @param string                             $method
      *
      * @return ResponseInterface
      *
      * @throws ClientExceptionInterface
      */
-    protected function httpPost(\Psr\Http\Message\RequestInterface $request): ResponseInterface
-    {
+    protected function httpPost(
+        \Psr\Http\Message\RequestInterface $request,
+        string $method
+    ): ResponseInterface {
+        $request->withHeader('X-API-METHOD', $method);
+
         return $this->client->sendRequest($request);
     }
 
@@ -168,6 +176,7 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      * @param class-string<TEntity>           $className           The class name of the mapped response
      * @param class-string<TEntityCollection> $collectionClassName The collection class name of the
      *                                                             mapped response
+     * @param string                          $method
      *
      * @return TEntityCollection
      *
@@ -177,13 +186,18 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      */
     protected function findAllEntities(
         string $className,
-        string $collectionClassName
+        string $collectionClassName,
+        string $method
     ) {
-        $requestClosure = function () use ($className, $collectionClassName): mixed {
-            $response = $this->httpGet();
+        $requestClosure = function () use ($className, $collectionClassName, $method): mixed {
+            $response = $this->httpGet($method);
 
             return $this->jsonSerializer
-                ->decode((string) $response->getBody(), $className, $collectionClassName);
+                ->decode(
+                    (string) $response->getBody(),
+                    $className,
+                    $collectionClassName
+                );
         };
 
         return $this->execute($requestClosure);
@@ -193,6 +207,7 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      * Returns a single entity. The route must contain the ID of the entity to be processed.
      *
      * @param class-string<TEntity> $className The class name of the mapped response
+     * @param string                $method
      *
      * @return TEntity|null
      *
@@ -200,10 +215,12 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      * @throws DetailedServiceException
      * @throws ServiceException
      */
-    protected function findEntity(string $className)
-    {
-        $requestClosure = function () use ($className): mixed {
-            $response = $this->httpGet();
+    protected function findEntity(
+        string $className,
+        string $method
+    ) {
+        $requestClosure = function () use ($className, $method): mixed {
+            $response = $this->httpGet($method);
 
             return $this->jsonSerializer
                 ->decode((string) $response->getBody(), $className);
@@ -216,6 +233,7 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      * Perform a POST request with XML data.
      *
      * @param RequestInterface $request The API request instance
+     * @param string           $method
      *
      * @return ResponseInterface
      *
@@ -223,7 +241,7 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      * @throws DetailedServiceException
      * @throws ServiceException
      */
-    protected function httpPostXml(RequestInterface $request): ResponseInterface
+    protected function httpPostXml(RequestInterface $request, string $method): ResponseInterface
     {
         $encodedBody = $this->xmlSerializer->encode($request);
 
@@ -231,13 +249,13 @@ abstract class AbstractApiEndpoint implements EndpointInterface
             throw new ServiceException('Failed to encode request into XML');
         }
 
-        $requestClosure = function () use ($encodedBody): ResponseInterface {
+        $requestClosure = function () use ($encodedBody, $method): ResponseInterface {
             $psrRequest = $this->requestFactory
                 ->createRequest('POST', (string) $this->urlBuilder)
                 ->withHeader('Content-Type', 'text/xml; charset=UTF-8')
                 ->withBody($this->streamFactory->createStream($encodedBody));
 
-            return $this->httpPost($psrRequest);
+            return $this->httpPost($psrRequest, $method);
         };
 
         return $this->execute($requestClosure);

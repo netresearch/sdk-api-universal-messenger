@@ -54,6 +54,11 @@ final class ErrorPlugin implements Plugin
     /**
      * @var int
      */
+    private const HTTP_NOT_FOUND = 404;
+
+    /**
+     * @var int
+     */
     private const HTTP_CONFLICT = 409;
 
     /**
@@ -229,6 +234,15 @@ final class ErrorPlugin implements Plugin
         // Bad request
         if ($response->getStatusCode() === self::HTTP_BAD_REQUEST) {
             $this->handleBadRequest($request, $response);
+        }
+
+        // Do not throw an exception if the status request returns a 404
+        if (($response->getStatusCode() === self::HTTP_NOT_FOUND)
+            && $request->hasHeader('X-API-METHOD')
+            && ($request->getHeaderLine('X-API-METHOD') === 'status')
+            && ($response->getBody()->getContents() !== '')
+        ) {
+            return;
         }
 
         // Every other 4xx error

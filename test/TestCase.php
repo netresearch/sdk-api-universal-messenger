@@ -161,10 +161,33 @@ class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Asserts that a variable is instance of or null.
+     * Asserts that given $actual matches the $expected called API method.
+     *
+     * @param string            $expected
+     * @param EndpointInterface $actual
+     * @param string            $message
+     *
+     * @return void
+     */
+    public static function assertCalledApiMethod(string $expected, EndpointInterface $actual, string $message = ''): void
+    {
+        $reflection = new ReflectionObject($actual);
+
+        try {
+            $methodProperty = $reflection->getProperty('method');
+            $value          = $methodProperty->getValue($actual);
+
+            self::assertSame($expected, $value, $message);
+        } catch (ReflectionException) {
+            self::fail('Reflection failed');
+        }
+    }
+
+    /**
+     * Asserts that a variable is an instance of or null.
      *
      * @param string $expected
-     * @param        $actual
+     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrInstanceOf(string $expected, mixed $actual, string $message = ''): void
@@ -182,7 +205,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type array or null.
      *
-     * @param        $actual
+     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrArray(mixed $actual, string $message = ''): void
@@ -200,7 +223,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type bool or null.
      *
-     * @param        $actual
+     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrBool(mixed $actual, string $message = ''): void
@@ -218,7 +241,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type int or null.
      *
-     * @param        $actual
+     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrInt(mixed $actual, string $message = ''): void
@@ -236,7 +259,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type float or null.
      *
-     * @param        $actual
+     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrFloat(mixed $actual, string $message = ''): void
@@ -254,7 +277,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type string or null.
      *
-     * @param        $actual
+     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrString(mixed $actual, string $message = ''): void

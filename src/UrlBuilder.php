@@ -33,12 +33,12 @@ class UrlBuilder implements Stringable
     private array $paths = [];
 
     /**
-     * @var mixed[]
+     * @var array<string, string>
      */
     private array $parameters = [];
 
     /**
-     * Reset the list of path parts.
+     * Resets the list of path parts.
      *
      * @return UrlBuilder
      */
@@ -50,7 +50,7 @@ class UrlBuilder implements Stringable
     }
 
     /**
-     * Set the base URL.
+     * Sets the base URL.
      *
      * @param string $baseUrl
      *
@@ -64,7 +64,7 @@ class UrlBuilder implements Stringable
     }
 
     /**
-     * Add a path part.
+     * Adds a path part.
      *
      * @param string $path
      *
@@ -94,15 +94,38 @@ class UrlBuilder implements Stringable
     }
 
     /**
-     * Set additional query parameters.
+     * @return array<string, string>
+     */
+    public function getParameters(): array
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * Sets a list of additional query parameters.
      *
-     * @param mixed[] $parameters
+     * @param array<string, string> $parameters
      *
      * @return UrlBuilder
      */
     public function setParams(array $parameters): UrlBuilder
     {
         $this->parameters = $parameters;
+
+        return $this;
+    }
+
+    /**
+     * Adds an additional query parameter.
+     *
+     * @param string $key
+     * @param string $value
+     *
+     * @return UrlBuilder
+     */
+    public function addParam(string $key, string $value): UrlBuilder
+    {
+        $this->parameters[$key] = $value;
 
         return $this;
     }

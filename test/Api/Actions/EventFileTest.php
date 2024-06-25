@@ -57,6 +57,7 @@ class EventFileTest extends TestCase
         );
 
         self::assertHttpMethod('POST', $eventFileApi);
+        self::assertCalledApiMethod('event', $eventFileApi);
         self::assertTrue($result);
     }
 }

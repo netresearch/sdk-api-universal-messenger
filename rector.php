@@ -53,9 +53,6 @@ return static function (RectorConfig $rectorConfig): void {
     // Skip some rules
     $rectorConfig->skip([
         CatchExceptionNameMatchingTypeRector::class,
-        ClassPropertyAssignToConstructorPromotionRector::class,
-        MixedTypeRector::class,
-        NullToStrictStringFuncCallArgRector::class,
         RemoveUnreachableStatementRector::class,
         RemoveUnusedConstructorParamRector::class,
         RemoveUnusedPrivatePropertyRector::class,
@@ -65,4 +62,21 @@ return static function (RectorConfig $rectorConfig): void {
         TypedPropertyFromAssignsRector::class,
         TypedPropertyFromStrictConstructorRector::class,
     ]);
+
+    // PHP 8.0 dependent rules
+    if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
+        // Skip some rules
+        $rectorConfig->skip([
+            ClassPropertyAssignToConstructorPromotionRector::class,
+            MixedTypeRector::class,
+        ]);
+    }
+
+    // PHP 8.1 dependent rules
+    if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
+        // Skip some rules
+        $rectorConfig->skip([
+            NullToStrictStringFuncCallArgRector::class,
+        ]);
+    }
 };

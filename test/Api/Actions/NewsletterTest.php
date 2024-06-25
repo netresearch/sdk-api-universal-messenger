@@ -87,6 +87,7 @@ class NewsletterTest extends TestCase
         );
 
         self::assertHttpMethod('GET', $newsletterApi);
+        self::assertCalledApiMethod('channels', $newsletterApi);
         self::assertInstanceOf(NewsletterChannelCollection::class, $result);
         self::assertContainsOnlyInstancesOf(NewsletterChannel::class, $result);
 
@@ -137,6 +138,7 @@ class NewsletterTest extends TestCase
         );
 
         self::assertHttpMethod('GET', $newsletterApi);
+        self::assertCalledApiMethod('status', $newsletterApi);
         self::assertInstanceOf(NewsletterStatus::class, $result);
 
         self::assertIsString($result->eventId);

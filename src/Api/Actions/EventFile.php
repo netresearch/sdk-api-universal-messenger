@@ -50,6 +50,9 @@ class EventFile extends AbstractApiEndpoint
      */
     public function event(EventRequest $request): bool
     {
-        return $this->httpPostXml($request, __FUNCTION__)->getStatusCode() < 300;
+        return $this
+            ->setMethod(__FUNCTION__)
+            ->httpPostXml($request)
+            ->getStatusCode() < 300;
     }
 }

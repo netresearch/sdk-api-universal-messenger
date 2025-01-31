@@ -38,7 +38,7 @@ class EventFile extends AbstractApiEndpoint
     /**
      * Posts a XML event file request.
      *
-     * GET https://<BASE-URL>/de.pinuts.cmsbs.restsend.EventFile/?open=
+     * POST https://<BASE-URL>/de.pinuts.cmsbs.restsend.EventFile/?open=
      *
      * @param EventRequest $request
      *

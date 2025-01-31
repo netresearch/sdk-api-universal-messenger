@@ -4,7 +4,7 @@ builders to create a valid request object. This allows you the using of the SDK 
 underlying API. Use the request object together with the desired API endpoint method to call the interface.
 
 ## Create an API instance
-But first of all you need to create a new API instance. You pass the API URL to be called and the API key 
+But first of all you need to create a new API instance. You pass the base API URL to be called and the API key
 to this instance.
 
 ```php
@@ -16,7 +16,7 @@ $apiClient = new \Netresearch\Sdk\UniversalMessenger\UniversalMessenger(
 );
 ```
 
-The client instance provides one method `api()` to access the implemented API endpoints.  
+The client instance provides the `api()` method to access the implemented API endpoints.
 
 
 ## Class map

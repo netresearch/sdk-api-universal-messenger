@@ -7,7 +7,7 @@
 The documentation for all requests can be found at [Universal Messenger API Documentation](doc/Developer_de_UM_7-53.pdf).
 
 The Universal Messenger API SDK package offers an interface to the *Universal Messenger* interface.
-The SDK implements only the endpoints and data structures required at the time of build.
+The SDK currently implements only the endpoints and data structures that were required at the time of development.
 
 ## Table of contents
 - [Requirements & Installation](doc/Requirements.md)

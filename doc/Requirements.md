@@ -9,19 +9,19 @@ To install this package your set-up requires already installed packages implemen
 `psr/http-client-implementation` and `psr/http-factory-implementation`, for instance `php-http/guzzle6-adapter`
 and `nyholm/psr7`.
 
-```bash
+```shell
 composer require netresearch/sdk-api-universal-messenger
 ```
 
 
 # Uninstallation
-```bash
+```shell
 composer remove netresearch/sdk-api-universal-messenger
 ```
 
 
 # Testing
-```bash
+```shell
 composer update
 composer ci:cgl
 composer ci:test

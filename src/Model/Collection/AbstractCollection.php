@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Netresearch\Sdk\UniversalMessenger\Model\Collection;
 
 use JsonSerializable;
-use ReturnTypeWillChange;
 
 use function array_key_exists;
 use function array_slice;
@@ -56,7 +55,6 @@ abstract class AbstractCollection implements CollectionInterface, JsonSerializab
      *
      * @return TValue|null
      */
-    #[ReturnTypeWillChange]
     public function offsetGet($offset): mixed
     {
         return $this->elements[$offset] ?? null;
@@ -98,7 +96,7 @@ abstract class AbstractCollection implements CollectionInterface, JsonSerializab
     /**
      * Count elements of an object.
      *
-     * @return int
+     * @return int<0, max>
      */
     public function count(): int
     {
@@ -130,7 +128,6 @@ abstract class AbstractCollection implements CollectionInterface, JsonSerializab
      *
      * @return false|TValue
      */
-    #[ReturnTypeWillChange]
     public function current(): mixed
     {
         return current($this->elements);
@@ -148,13 +145,10 @@ abstract class AbstractCollection implements CollectionInterface, JsonSerializab
 
     /**
      * Move forward to the next element.
-     *
-     * @return false|TValue
      */
-    #[ReturnTypeWillChange]
-    public function next(): mixed
+    public function next(): void
     {
-        return next($this->elements);
+        next($this->elements);
     }
 
     /**

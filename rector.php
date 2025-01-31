@@ -18,7 +18,6 @@ use Rector\DeadCode\Rector\Property\RemoveUnusedPrivatePropertyRector;
 use Rector\DeadCode\Rector\Property\RemoveUselessVarTagRector;
 use Rector\DeadCode\Rector\Stmt\RemoveUnreachableStatementRector;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
-use Rector\Php80\Rector\FunctionLike\MixedTypeRector;
 use Rector\Php81\Rector\FuncCall\NullToStrictStringFuncCallArgRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
@@ -47,7 +46,7 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::CODING_STYLE,
         SetList::CODE_QUALITY,
         SetList::DEAD_CODE,
-        LevelSetList::UP_TO_PHP_81,
+        LevelSetList::UP_TO_PHP_82,
     ]);
 
     // Skip some rules
@@ -68,7 +67,6 @@ return static function (RectorConfig $rectorConfig): void {
         // Skip some rules
         $rectorConfig->skip([
             ClassPropertyAssignToConstructorPromotionRector::class,
-            MixedTypeRector::class,
         ]);
     }
 

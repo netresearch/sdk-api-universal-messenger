@@ -83,7 +83,7 @@ class UniversalMessenger
         LoggerInterface $logger,
         string $webserviceUrl,
         string $apiKey,
-        array $classMap = []
+        array $classMap = [],
     ) {
         $this->logger = $logger;
         $this->apiKey = $apiKey;

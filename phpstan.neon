@@ -23,3 +23,5 @@ parameters:
     ignoreErrors:
         -
             identifier: missingType.generics
+        -
+            identifier: arrayFilter.strict

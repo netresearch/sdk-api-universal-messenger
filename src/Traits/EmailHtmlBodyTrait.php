@@ -34,7 +34,7 @@ trait EmailHtmlBodyTrait
     public function setHtmlBodyBaseAndDownloadUrl(
         ?string $baseUrl,
         ?string $downloadUrl,
-        ?string $restProxyUrl
+        ?string $restProxyUrl,
     ): CreateRequestBuilder {
         $this->data['data']['html']['baseUrl']      = $baseUrl;
         $this->data['data']['html']['downloadUrl']  = $downloadUrl;
@@ -49,7 +49,7 @@ trait EmailHtmlBodyTrait
      * @return CreateRequestBuilder
      */
     public function setHtmlBodyEncoding(
-        ?string $charset
+        ?string $charset,
     ): CreateRequestBuilder {
         $this->data['data']['html']['charset'] = $charset;
 
@@ -64,7 +64,7 @@ trait EmailHtmlBodyTrait
      */
     public function setHtmlBodyContent(
         ?bool $inline,
-        ?string $content
+        ?string $content,
     ): CreateRequestBuilder {
         $this->data['data']['html']['inline']  = $inline;
         $this->data['data']['html']['content'] = $content;
@@ -78,7 +78,7 @@ trait EmailHtmlBodyTrait
      * @return CreateRequestBuilder
      */
     public function setHtmlBodyEmbedImages(
-        ?string $embedImages
+        ?string $embedImages,
     ): CreateRequestBuilder {
         $this->data['data']['html']['embedImages'] = $embedImages;
 
@@ -93,7 +93,7 @@ trait EmailHtmlBodyTrait
      */
     public function setHtmlBodyTracking(
         ?bool $linkTracking,
-        ?bool $viewTracking
+        ?bool $viewTracking,
     ): CreateRequestBuilder {
         $this->data['data']['html']['linkTracking'] = $linkTracking;
         $this->data['data']['html']['viewTracking'] = $viewTracking;
@@ -107,7 +107,7 @@ trait EmailHtmlBodyTrait
      * @return CreateRequestBuilder
      */
     public function setHtmlBodyRenderCallback(
-        ?string $renderCallback
+        ?string $renderCallback,
     ): CreateRequestBuilder {
         $this->data['data']['html']['renderCallback'] = $renderCallback;
 

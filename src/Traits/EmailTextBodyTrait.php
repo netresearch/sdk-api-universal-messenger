@@ -32,7 +32,7 @@ trait EmailTextBodyTrait
      */
     public function setTextBodyBaseAndDownloadUrl(
         ?string $baseUrl,
-        ?string $downloadUrl
+        ?string $downloadUrl,
     ): CreateRequestBuilder {
         $this->data['data']['text']['baseUrl']     = $baseUrl;
         $this->data['data']['text']['downloadUrl'] = $downloadUrl;
@@ -46,7 +46,7 @@ trait EmailTextBodyTrait
      * @return CreateRequestBuilder
      */
     public function setTextBodyEncoding(
-        ?string $charset
+        ?string $charset,
     ): CreateRequestBuilder {
         $this->data['data']['text']['charset'] = $charset;
 
@@ -61,7 +61,7 @@ trait EmailTextBodyTrait
      */
     public function setTextBodyContent(
         ?bool $inline,
-        ?string $content
+        ?string $content,
     ): CreateRequestBuilder {
         $this->data['data']['text']['inline']  = $inline;
         $this->data['data']['text']['content'] = $content;
@@ -75,7 +75,7 @@ trait EmailTextBodyTrait
      * @return CreateRequestBuilder
      */
     public function setTextBodyTracking(
-        ?bool $linkTracking
+        ?bool $linkTracking,
     ): CreateRequestBuilder {
         $this->data['data']['text']['linkTracking'] = $linkTracking;
 
@@ -88,7 +88,7 @@ trait EmailTextBodyTrait
      * @return CreateRequestBuilder
      */
     public function setTextBodyRenderCallback(
-        ?string $renderCallback
+        ?string $renderCallback,
     ): CreateRequestBuilder {
         $this->data['data']['text']['renderCallback'] = $renderCallback;
 

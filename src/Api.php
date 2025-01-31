@@ -97,7 +97,7 @@ class Api
         JsonSerializer $jsonSerializer,
         XmlSerializer $xmlSerializer,
         UrlBuilder $urlBuilder,
-        string $apiKey
+        string $apiKey,
     ) {
         $this->client         = $client;
         $this->requestFactory = $requestFactory;

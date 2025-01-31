@@ -101,7 +101,7 @@ abstract class AbstractApiEndpoint implements EndpointInterface
         StreamFactoryInterface $streamFactory,
         JsonSerializer $jsonSerializer,
         XmlSerializer $xmlSerializer,
-        UrlBuilder $urlBuilder
+        UrlBuilder $urlBuilder,
     ) {
         $this->client         = $client;
         $this->requestFactory = $requestFactory;
@@ -235,7 +235,7 @@ abstract class AbstractApiEndpoint implements EndpointInterface
      */
     protected function findAllEntities(
         string $className,
-        string $collectionClassName
+        string $collectionClassName,
     ) {
         $requestClosure = function () use ($className, $collectionClassName): mixed {
             $response = $this->httpGet();

@@ -55,7 +55,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
     public function setEventDetails(
         ?string $id = null,
         ?string $newsletterGroup = null,
-        ?bool $skipUsedIDs = null
+        ?bool $skipUsedIDs = null,
     ): CreateRequestBuilder {
         $this->data['event']['id']              = $id;
         $this->data['event']['newsletterGroup'] = $newsletterGroup;
@@ -74,7 +74,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function setEventCreatedBy(
         ?string $createdBy = null,
-        ?string $createdByDisplayName = null
+        ?string $createdByDisplayName = null,
     ): CreateRequestBuilder {
         $this->data['event']['createdBy']            = $createdBy;
         $this->data['event']['createdByDisplayName'] = $createdByDisplayName;
@@ -92,7 +92,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function setEventArchiveSaving(
         bool $archive,
-        bool $archiveSkipped
+        bool $archiveSkipped,
     ): CreateRequestBuilder {
         $this->data['event']['archive']        = $archive;
         $this->data['event']['archiveSkipped'] = $archiveSkipped;
@@ -168,7 +168,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function setPreview(
         ?string $baseEntryEmail = null,
-        ?string $service = null
+        ?string $service = null,
     ): CreateRequestBuilder {
         $this->data['destination']['preview']['baseEntryEmail'] = $baseEntryEmail;
         $this->data['destination']['preview']['service']        = $service;
@@ -210,7 +210,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      * @return CreateRequestBuilder
      */
     public function setMailTo(
-        ?string $mailTo
+        ?string $mailTo,
     ): CreateRequestBuilder {
         $this->data['data']['mailTo'] = $mailTo;
 
@@ -223,7 +223,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      * @return CreateRequestBuilder
      */
     public function setMessage(
-        ?string $message
+        ?string $message,
     ): CreateRequestBuilder {
         $this->data['data']['message'] = $message;
 
@@ -238,7 +238,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function setEmailBaseAndDownloadUrl(
         ?string $baseUrl,
-        ?string $downloadUrl = null
+        ?string $downloadUrl = null,
     ): CreateRequestBuilder {
         $this->data['data']['email']['baseUrl']     = $baseUrl;
         $this->data['data']['email']['downloadUrl'] = $downloadUrl;
@@ -256,7 +256,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
     public function setEmailAdresses(
         ?string $sender,
         ?string $replyTo = null,
-        ?string $envelopeFrom = null
+        ?string $envelopeFrom = null,
     ): CreateRequestBuilder {
         $this->data['data']['email']['sender']       = $sender;
         $this->data['data']['email']['replyTo']      = $replyTo;
@@ -271,7 +271,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      * @return CreateRequestBuilder
      */
     public function setEmailSubject(
-        string $subject
+        string $subject,
     ): CreateRequestBuilder {
         $this->data['data']['email']['subject'] = $subject;
 
@@ -279,7 +279,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
     }
 
     public function setEmailTracking(
-        string $trackingMode
+        string $trackingMode,
     ): CreateRequestBuilder {
         $this->data['data']['email']['trackingMode'] = $trackingMode;
 
@@ -294,7 +294,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function setEmailBodyType(
         bool $obeyPreferHtml = false,
-        bool $sendBothParts = false
+        bool $sendBothParts = false,
     ): CreateRequestBuilder {
         $this->data['data']['email']['obeyPreferHtml'] = $obeyPreferHtml;
         $this->data['data']['email']['sendBothParts']  = $sendBothParts;
@@ -316,7 +316,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
         ?string $content,
         ?string $disposition,
         ?bool $inline,
-        ?string $name
+        ?string $name,
     ): CreateRequestBuilder {
         if (!isset($this->data['data']['email']['files'])) {
             $this->data['data']['email']['files'] = [];

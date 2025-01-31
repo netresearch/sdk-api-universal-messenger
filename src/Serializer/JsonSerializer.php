@@ -112,7 +112,7 @@ class JsonSerializer
     public function decode(
         string $jsonResponse,
         ?string $className = null,
-        ?string $collectionClassName = null
+        ?string $collectionClassName = null,
     ) {
         $extractor = new PropertyInfoExtractor(
             [

@@ -52,8 +52,6 @@ class CreateRequestBuilderTest extends RequestBuilderTestCase
      */
     public function create(string $expectedXml): void
     {
-        //        self::markTestSkipped();
-
         $requestBuilder = new CreateRequestBuilder();
         $requestBuilder
             ->setEventDetails('MY-CUSTOM-EVENT-ID', 'GROUP', true)
@@ -133,9 +131,6 @@ HTML
 
         $request    = $requestBuilder->create();
         $requestXml = $this->xmlSerializer->encode($request);
-
-        //        var_dump($requestXml);
-        //        exit;
 
         self::assertSameXml($expectedXml, $requestXml);
     }

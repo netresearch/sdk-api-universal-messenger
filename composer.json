@@ -14,8 +14,19 @@
     "support": {
         "issues": "https://github.com/netresearch/sdk-api-universal-messenger"
     },
+    "config": {
+        "bin-dir": ".build/bin",
+        "vendor-dir": ".build/vendor",
+        "discard-changes": true,
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "platform-check": false,
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
+    },
     "require": {
-        "php": ">=8.1.0 <8.4.0",
+        "php": ">=8.2.0 <8.5.0",
         "ext-json": "*",
         "ext-simplexml": "*",
         "ext-xmlwriter": "*",
@@ -35,17 +46,17 @@
         "psr/log": "^3.0.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.1",
+        "friendsofphp/php-cs-fixer": "^3.65",
         "nyholm/psr7": "^1.8",
-        "overtrue/phplint": "^3.4 || ^9.0",
-        "php-http/mock-client": "^1.5",
-        "phpstan/phpstan": "^1.10",
-        "phpstan/phpstan-deprecation-rules": "^1.1",
-        "phpstan/phpstan-phpunit": "^1.3",
-        "phpstan/phpstan-strict-rules": "^1.5",
-        "phpunit/phpunit": "^9.0 || ^10.0 || ^11.0",
-        "rector/rector": "^1.0",
-        "symfony/http-client": "^5.4"
+        "overtrue/phplint": "^9.0",
+        "php-http/mock-client": "^1.6",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^11.0",
+        "rector/rector": "^2.0",
+        "symfony/http-client": "^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -62,18 +73,16 @@
             "dev-master": "1.0.x-dev"
         }
     },
-    "config": {
-        "bin-dir": ".build/bin",
-        "vendor-dir": ".build/vendor",
-        "discard-changes": true,
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "platform-check": false,
-        "allow-plugins": {
-            "php-http/discovery": false
-        }
-    },
     "scripts": {
+        "ci:cgl": [
+            "php-cs-fixer fix --diff --verbose --cache-file .build/.php-cs-fixer.cache"
+        ],
+        "ci:rector": [
+            "rector process --config rector.php"
+        ],
+        "ci:test:php:cgl": [
+            "@ci:cgl --dry-run"
+        ],
         "ci:test:php:lint": [
             "phplint"
         ],
@@ -81,22 +90,20 @@
             "phpunit"
         ],
         "ci:test:php:phpstan": [
-            "phpstan analyze"
+            "phpstan analyze --memory-limit=-1"
         ],
         "ci:test:php:phpstan:baseline": [
-            "phpstan analyze --generate-baseline phpstan-baseline.neon --allow-empty-baseline"
+            "phpstan analyze --memory-limit=-1 --generate-baseline phpstan-baseline.neon --allow-empty-baseline"
         ],
         "ci:test:php:rector": [
-            "rector process --config rector.php --dry-run"
+            "@ci:rector --dry-run"
         ],
         "ci:test": [
             "@ci:test:php:lint",
             "@ci:test:php:phpstan",
             "@ci:test:php:rector",
-            "@ci:test:php:unit"
-        ],
-        "ci:cgl": [
-            "php-cs-fixer fix --diff --verbose"
+            "@ci:test:php:unit",
+            "@ci:test:php:cgl"
         ]
     }
 }

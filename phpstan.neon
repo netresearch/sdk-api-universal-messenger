@@ -1,6 +1,10 @@
 includes:
     - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-strict-rules/rules.neon
     - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-deprecation-rules/rules.neon
+    - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-phpunit/extension.neon
+    - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-phpunit/rules.neon
+    - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-symfony/extension.neon
+    - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-symfony/rules.neon
     - %currentWorkingDirectory%/phpstan-baseline.neon
 
 services:

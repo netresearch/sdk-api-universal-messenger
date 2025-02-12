@@ -1,3 +1,13 @@
+# 1.1.1
+
+## MISC
+
+- b5a79d6 Update dev tools configuration
+
+## Contributors
+
+- Rico Sonntag
+
 # 1.1.0
 
 ## MISC

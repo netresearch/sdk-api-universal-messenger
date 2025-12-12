@@ -17,7 +17,6 @@ use Netresearch\Sdk\UniversalMessenger\Request\RequestInterface;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
-use Symfony\Component\PropertyInfo\Type;
 
 use function is_bool;
 
@@ -59,7 +58,7 @@ class XmlSerializer
 
         // Add handler for bool elements
         $encoder->addType(
-            Type::BUILTIN_TYPE_BOOL,
+            'bool',
             static function (string $propertyName, mixed $propertyValue): ?string {
                 // Special treatment for "inline" attribute with "null" values
                 if (

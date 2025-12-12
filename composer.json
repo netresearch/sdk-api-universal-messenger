@@ -30,7 +30,7 @@
         "ext-json": "*",
         "ext-simplexml": "*",
         "ext-xmlwriter": "*",
-        "magicsunday/jsonmapper": "^2.4.0",
+        "magicsunday/jsonmapper": "^3.0.0",
         "magicsunday/xmlmapper": "^1.0.0",
         "php-http/discovery": "^1.19.0",
         "php-http/httplug": "^2.4.0",

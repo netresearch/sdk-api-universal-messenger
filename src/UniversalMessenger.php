@@ -129,7 +129,7 @@ class UniversalMessenger
      */
     public function api(): Api
     {
-        if (!($this->api instanceof Api)) {
+        if (!$this->api instanceof Api) {
             try {
                 $requestFactory = Psr17FactoryDiscovery::findRequestFactory();
                 $streamFactory  = Psr17FactoryDiscovery::findStreamFactory();

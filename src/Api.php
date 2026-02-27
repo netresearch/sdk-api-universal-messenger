@@ -122,7 +122,7 @@ class Api
                 'umopen' => $this->apiKey,
             ]);
 
-        if (!($this->newsletterApi instanceof Newsletter)) {
+        if (!$this->newsletterApi instanceof Newsletter) {
             $this->newsletterApi = new Newsletter(
                 $this->client,
                 $this->requestFactory,
@@ -150,7 +150,7 @@ class Api
                 'open' => $this->apiKey,
             ]);
 
-        if (!($this->eventFileApi instanceof EventFile)) {
+        if (!$this->eventFileApi instanceof EventFile) {
             $this->eventFileApi = new EventFile(
                 $this->client,
                 $this->requestFactory,

@@ -113,7 +113,7 @@ class JsonSerializer
         string $jsonResponse,
         ?string $className = null,
         ?string $collectionClassName = null,
-    ) {
+    ): mixed {
         $extractor = new PropertyInfoExtractor(
             [
                 new ReflectionExtractor(),

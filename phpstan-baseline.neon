@@ -1,7 +1,2 @@
 parameters:
-	ignoreErrors:
-		-
-			message: '#^Call to deprecated method addType\(\) of class MagicSunday\\JsonMapper#'
-			identifier: method.deprecated
-			count: 1
-			path: src/Serializer/JsonSerializer.php
+	ignoreErrors: []

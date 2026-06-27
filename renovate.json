@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>netresearch/renovate-config",
+    "helpers:pinGitHubActionDigests",
     ":automergeMinor",
     ":automergePatch"
   ],

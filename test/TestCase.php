@@ -45,8 +45,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
      *
      * @param string $responseData
      * @param int    $statusCode
-     *
-     * @return UniversalMessenger|MockObject
      */
     public function getServiceFactoryMock(string $responseData = '', int $statusCode = 200): MockObject|UniversalMessenger
     {
@@ -187,7 +185,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
      * Asserts that a variable is an instance of or null.
      *
      * @param string $expected
-     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrInstanceOf(string $expected, mixed $actual, string $message = ''): void
@@ -205,7 +202,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type array or null.
      *
-     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrArray(mixed $actual, string $message = ''): void
@@ -223,7 +219,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type bool or null.
      *
-     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrBool(mixed $actual, string $message = ''): void
@@ -241,7 +236,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type int or null.
      *
-     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrInt(mixed $actual, string $message = ''): void
@@ -259,7 +253,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type float or null.
      *
-     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrFloat(mixed $actual, string $message = ''): void
@@ -277,7 +270,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a variable is of type string or null.
      *
-     * @param mixed  $actual
      * @param string $message
      */
     public static function assertIsNullOrString(mixed $actual, string $message = ''): void

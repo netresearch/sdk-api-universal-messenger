@@ -117,11 +117,8 @@ class Event implements RequestInterface
     //     * @var null|PreExec
     //     */
     //    private ?PreExec $preExec = null;
-
     /**
      * @param string|null $id
-     *
-     * @return Event
      */
     public function setId(?string $id): Event
     {
@@ -132,8 +129,6 @@ class Event implements RequestInterface
 
     /**
      * @param string|null $newsletterGroup
-     *
-     * @return Event
      */
     public function setNewsletterGroup(?string $newsletterGroup): Event
     {
@@ -144,8 +139,6 @@ class Event implements RequestInterface
 
     /**
      * @param bool|null $skipUsedIDs
-     *
-     * @return Event
      */
     public function setSkipUsedIDs(?bool $skipUsedIDs): Event
     {
@@ -156,8 +149,6 @@ class Event implements RequestInterface
 
     /**
      * @param bool|null $archiveSkipped
-     *
-     * @return Event
      */
     public function setArchiveSkipped(?bool $archiveSkipped): Event
     {
@@ -168,8 +159,6 @@ class Event implements RequestInterface
 
     /**
      * @param bool|null $archive
-     *
-     * @return Event
      */
     public function setArchive(?bool $archive): Event
     {
@@ -180,8 +169,6 @@ class Event implements RequestInterface
 
     /**
      * @param string|null $createdBy
-     *
-     * @return Event
      */
     public function setCreatedBy(?string $createdBy): Event
     {
@@ -192,8 +179,6 @@ class Event implements RequestInterface
 
     /**
      * @param string|null $createdByDisplayName
-     *
-     * @return Event
      */
     public function setCreatedByDisplayName(?string $createdByDisplayName): Event
     {
@@ -204,8 +189,6 @@ class Event implements RequestInterface
 
     /**
      * @param Destination|null $destination
-     *
-     * @return Event
      */
     public function setDestination(?Destination $destination): Event
     {
@@ -216,8 +199,6 @@ class Event implements RequestInterface
 
     /**
      * @param Data|null $data
-     *
-     * @return Event
      */
     public function setData(?Data $data): Event
     {
@@ -228,8 +209,6 @@ class Event implements RequestInterface
 
     /**
      * @param Date|null $date
-     *
-     * @return Event
      */
     public function setDate(?Date $date): Event
     {
@@ -240,8 +219,6 @@ class Event implements RequestInterface
 
     /**
      * @param string[] $tags
-     *
-     * @return Event
      */
     public function setTags(array $tags): Event
     {
@@ -252,8 +229,6 @@ class Event implements RequestInterface
 
     /**
      * @param string $tag
-     *
-     * @return Event
      */
     public function addTag(string $tag): Event
     {

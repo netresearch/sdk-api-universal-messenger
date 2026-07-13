@@ -33,8 +33,6 @@ class XmlSerializer
      * Maps the given request type instance to XML.
      *
      * @param RequestInterface $instance
-     *
-     * @return string|false
      */
     public function encode(RequestInterface $instance): string|false
     {

@@ -135,8 +135,6 @@ abstract class AbstractCollection implements CollectionInterface, JsonSerializab
 
     /**
      * Return the key of the current element.
-     *
-     * @return int|string|null
      */
     public function key(): int|string|null
     {

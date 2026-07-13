@@ -50,14 +50,14 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.65",
         "nyholm/psr7": "^1.8",
-        "overtrue/phplint": "^9.0",
+        "overtrue/phplint": "^9.5",
         "php-http/mock-client": "^1.6",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",
-        "phpunit/phpunit": "^11.0",
+        "phpunit/phpunit": "^11.0 || ^12.0 || ^13.0",
         "rector/rector": "^2.0",
         "symfony/http-client": "^7.0 || ^8.0"
     },

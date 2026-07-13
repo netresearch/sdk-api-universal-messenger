@@ -23,6 +23,8 @@
         "platform-check": false,
         "allow-plugins": {
             "php-http/discovery": false
+        },
+        "platform": {
         }
     },
     "require": {
@@ -31,7 +33,7 @@
         "ext-simplexml": "*",
         "ext-xmlwriter": "*",
         "magicsunday/jsonmapper": "^2.4.0",
-        "magicsunday/xmlmapper": "^2.0 || ^3.0",
+        "magicsunday/xmlmapper": "^2.0 || ^3.0.1",
         "php-http/discovery": "^1.19.0",
         "php-http/httplug": "^2.4.0",
         "php-http/logger-plugin": "^1.3.0",

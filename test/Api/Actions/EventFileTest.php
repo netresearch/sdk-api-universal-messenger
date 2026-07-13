@@ -15,6 +15,7 @@ use Netresearch\Sdk\UniversalMessenger\Api\Actions\EventFile;
 use Netresearch\Sdk\UniversalMessenger\Exception\ServiceException;
 use Netresearch\Sdk\UniversalMessenger\Request\Event;
 use Netresearch\Sdk\UniversalMessenger\Test\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 /**
  * Class EventFileTest.
@@ -43,9 +44,8 @@ class EventFileTest extends TestCase
 
     /**
      * Tests "eventFile" method.
-     *
-     * @test
      */
+    #[Test]
     public function eventFile(): void
     {
         $eventFileApi = $this->getEventFileApi();

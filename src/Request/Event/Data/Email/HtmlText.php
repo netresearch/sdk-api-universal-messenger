@@ -35,18 +35,16 @@ class HtmlText implements XmlSerializable
      * absolute path "none" if there is no HTML e-mail Email should be sent.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $inline = null;
 
     /**
      * Specification of the encoding.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $charset = null;
 
     /**
@@ -57,18 +55,16 @@ class HtmlText implements XmlSerializable
      * none   - if no images are to be embedded.
      *
      * @var string
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private string $embedImages = 'byPath';
 
     /**
      * URL that precedes the relative links.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $baseUrl = null;
 
     /**
@@ -76,36 +72,32 @@ class HtmlText implements XmlSerializable
      * then the baseUrl attribute from the email element is used instead.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $downloadUrl = null;
 
     /**
      * FALSE if click tracking should be deactivated for this newsletter.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $linkTracking = null;
 
     /**
      * FALSE if tracking of opens for this newsletter should be deactivated.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $viewTracking = null;
 
     /**
      * Function name of a CSE callback to be called when the newsletter is rendered.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $renderCallback = null;
 
     /**
@@ -118,18 +110,16 @@ class HtmlText implements XmlSerializable
      * newsletters can open older newsletters without the referenced files no longer being available.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $restProxyUrl = null;
 
     /**
      * The HTML text to send.
      *
      * @var string|null
-     *
-     * @XmlCDataSection
      */
+    #[XmlCDataSection]
     private ?string $content = null;
 
     /**

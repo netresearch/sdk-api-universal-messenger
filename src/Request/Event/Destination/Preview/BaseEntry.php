@@ -29,9 +29,8 @@ class BaseEntry implements XmlSerializable
      * uniquely identified to personalize the preview.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $email = null;
 
     /**

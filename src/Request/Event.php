@@ -29,18 +29,16 @@ class Event implements RequestInterface
      * Optional unique identifier (if no ID is specified, a random ID will be generated).
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $id = null;
 
     /**
      * Optional specification of a newsletter series to which the newsletter should be assigned.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $newsletterGroup = null;
 
     /**
@@ -48,9 +46,8 @@ class Event implements RequestInterface
      * with the same event ID in the archive.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $skipUsedIDs = null;
 
     /**
@@ -60,36 +57,32 @@ class Event implements RequestInterface
      * Set to FALSE if skipped newsletters (skipedUsedIDs = "true") should not be saved in the newsletter archive.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $archiveSkipped = null;
 
     /**
      * FALSE if the newsletter should not be saved in the archive.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $archive = null;
 
     /**
      * Optional indication of the username of the user who triggered the newsletter dispatch.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $createdBy = null;
 
     /**
      * Optional indication of the display username, the user who triggered the newsletter dispatch.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $createdByDisplayName = null;
 
     /**

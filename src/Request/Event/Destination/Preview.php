@@ -28,9 +28,8 @@ class Preview implements XmlSerializable
      * Specification of the preview service. Currently only "litmus" is possible as a value.
      *
      * @var string
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private string $service = 'litmus';
 
     /**

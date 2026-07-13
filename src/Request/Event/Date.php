@@ -29,9 +29,8 @@ class Date implements XmlSerializable
      * The date/time value.
      *
      * @var string
-     *
-     * @XmlNodeValue
      */
+    #[XmlNodeValue]
     private readonly string $value;
 
     /**
@@ -39,9 +38,8 @@ class Date implements XmlSerializable
      * The default format is "dd.MM.yyyy HH:mm:ss".
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $format = null;
 
     /**

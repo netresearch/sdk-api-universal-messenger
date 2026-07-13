@@ -31,9 +31,8 @@ class Email implements XmlSerializable
      * (make sure the email address format is correct: "John Doe <john.doe@example.org>").
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $sender = null;
 
     /**
@@ -41,9 +40,8 @@ class Email implements XmlSerializable
      * (make sure the email address format is correct: "John Doe <john.doe@example.org>").
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $replyto = null;
 
     /**
@@ -51,18 +49,16 @@ class Email implements XmlSerializable
      * (make sure the email address format is correct: "John Doe <john.doe@example.org>").
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $envelopeFrom = null;
 
     /**
      * TRUE if the HTML email should only be sent to subscribers with the "html" attribute set.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $obeyPreferHtml = null;
 
     /**
@@ -71,18 +67,16 @@ class Email implements XmlSerializable
      * If FALSE, only the HTML email is sent.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $sendBothParts = null;
 
     /**
      * URL that precedes the relative links.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $baseUrl = null;
 
     /**
@@ -90,9 +84,8 @@ class Email implements XmlSerializable
      * then the baseUrl attribute from the email element is used instead.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $downloadUrl = null;
 
     /**
@@ -101,9 +94,8 @@ class Email implements XmlSerializable
      * However, the "mixed" mode can only be selected here if the "mixed" mode is also set globally.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $trackingMode = null;
 
     /**

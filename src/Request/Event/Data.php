@@ -30,9 +30,8 @@ class Data implements XmlSerializable
      * This information is only necessary if the standard email address is to be changed.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $mailto = null;
 
     /**

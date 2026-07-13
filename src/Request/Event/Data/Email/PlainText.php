@@ -31,27 +31,24 @@ class PlainText implements XmlSerializable
      * "none" if no text email is to be sent.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $inline = null;
 
     /**
      * Specification of the encoding.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $charset = null;
 
     /**
      * URL that precedes the relative links.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $baseUrl = null;
 
     /**
@@ -59,36 +56,32 @@ class PlainText implements XmlSerializable
      * then the baseUrl attribute from the email element is used instead.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $downloadUrl = null;
 
     /**
      * FALSE if click tracking should be deactivated for this newsletter.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $linkTracking = null;
 
     /**
      * Function name of a CSE callback to be called when the newsletter is rendered.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $renderCallback = null;
 
     /**
      * The plain text to send.
      *
      * @var string|null
-     *
-     * @XmlNodeValue
      */
+    #[XmlNodeValue]
     private ?string $content = null;
 
     /**

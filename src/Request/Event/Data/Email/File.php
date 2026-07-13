@@ -29,32 +29,28 @@ class File implements XmlSerializable
      * which can be referenced in the email using "cid:content-name".
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $name = null;
 
     /**
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $disposition = null;
 
     /**
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $inline = null;
 
     /**
      * The base64 encoded file content.
      *
      * @var string|null
-     *
-     * @XmlNodeValue
      */
+    #[XmlNodeValue]
     private ?string $content = null;
 
     /**

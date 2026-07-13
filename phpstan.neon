@@ -17,6 +17,11 @@ parameters:
     # You can currently choose from 10 levels (0 is the loosest and 9 is the strictest).
     level: 8
 
+    # Statically verify the whole supported PHP range (8.2 - 8.5).
+    phpVersion:
+        min: 80200
+        max: 80500
+
     paths:
         - %currentWorkingDirectory%/src/
 

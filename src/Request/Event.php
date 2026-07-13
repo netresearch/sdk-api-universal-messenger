@@ -29,18 +29,16 @@ class Event implements RequestInterface
      * Optional unique identifier (if no ID is specified, a random ID will be generated).
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $id = null;
 
     /**
      * Optional specification of a newsletter series to which the newsletter should be assigned.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $newsletterGroup = null;
 
     /**
@@ -48,9 +46,8 @@ class Event implements RequestInterface
      * with the same event ID in the archive.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $skipUsedIDs = null;
 
     /**
@@ -60,36 +57,32 @@ class Event implements RequestInterface
      * Set to FALSE if skipped newsletters (skipedUsedIDs = "true") should not be saved in the newsletter archive.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $archiveSkipped = null;
 
     /**
      * FALSE if the newsletter should not be saved in the archive.
      *
      * @var bool|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?bool $archive = null;
 
     /**
      * Optional indication of the username of the user who triggered the newsletter dispatch.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $createdBy = null;
 
     /**
      * Optional indication of the display username, the user who triggered the newsletter dispatch.
      *
      * @var string|null
-     *
-     * @XmlAttribute
      */
+    #[XmlAttribute]
     private ?string $createdByDisplayName = null;
 
     /**
@@ -124,11 +117,8 @@ class Event implements RequestInterface
     //     * @var null|PreExec
     //     */
     //    private ?PreExec $preExec = null;
-
     /**
      * @param string|null $id
-     *
-     * @return Event
      */
     public function setId(?string $id): Event
     {
@@ -139,8 +129,6 @@ class Event implements RequestInterface
 
     /**
      * @param string|null $newsletterGroup
-     *
-     * @return Event
      */
     public function setNewsletterGroup(?string $newsletterGroup): Event
     {
@@ -151,8 +139,6 @@ class Event implements RequestInterface
 
     /**
      * @param bool|null $skipUsedIDs
-     *
-     * @return Event
      */
     public function setSkipUsedIDs(?bool $skipUsedIDs): Event
     {
@@ -163,8 +149,6 @@ class Event implements RequestInterface
 
     /**
      * @param bool|null $archiveSkipped
-     *
-     * @return Event
      */
     public function setArchiveSkipped(?bool $archiveSkipped): Event
     {
@@ -175,8 +159,6 @@ class Event implements RequestInterface
 
     /**
      * @param bool|null $archive
-     *
-     * @return Event
      */
     public function setArchive(?bool $archive): Event
     {
@@ -187,8 +169,6 @@ class Event implements RequestInterface
 
     /**
      * @param string|null $createdBy
-     *
-     * @return Event
      */
     public function setCreatedBy(?string $createdBy): Event
     {
@@ -199,8 +179,6 @@ class Event implements RequestInterface
 
     /**
      * @param string|null $createdByDisplayName
-     *
-     * @return Event
      */
     public function setCreatedByDisplayName(?string $createdByDisplayName): Event
     {
@@ -211,8 +189,6 @@ class Event implements RequestInterface
 
     /**
      * @param Destination|null $destination
-     *
-     * @return Event
      */
     public function setDestination(?Destination $destination): Event
     {
@@ -223,8 +199,6 @@ class Event implements RequestInterface
 
     /**
      * @param Data|null $data
-     *
-     * @return Event
      */
     public function setData(?Data $data): Event
     {
@@ -235,8 +209,6 @@ class Event implements RequestInterface
 
     /**
      * @param Date|null $date
-     *
-     * @return Event
      */
     public function setDate(?Date $date): Event
     {
@@ -247,8 +219,6 @@ class Event implements RequestInterface
 
     /**
      * @param string[] $tags
-     *
-     * @return Event
      */
     public function setTags(array $tags): Event
     {
@@ -259,8 +229,6 @@ class Event implements RequestInterface
 
     /**
      * @param string $tag
-     *
-     * @return Event
      */
     public function addTag(string $tag): Event
     {

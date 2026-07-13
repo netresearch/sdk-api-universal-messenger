@@ -16,6 +16,8 @@ use Netresearch\Sdk\UniversalMessenger\Exception\RequestValidatorException;
 use Netresearch\Sdk\UniversalMessenger\RequestBuilder\EventFile\CreateRequestBuilder;
 use Netresearch\Sdk\UniversalMessenger\Test\Provider\EventFileProvider;
 use Netresearch\Sdk\UniversalMessenger\Test\RequestBuilder\RequestBuilderTestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 /**
  * Class CreateRequestBuilderTest.
@@ -41,15 +43,13 @@ class CreateRequestBuilderTest extends RequestBuilderTestCase
     /**
      * Tests creating a new person.
      *
-     * @dataProvider createRequestDataProvider
-     *
-     * @test
-     *
      * @param string $expectedXml
      *
      * @throws RequestValidatorException
      * @throws JsonException
      */
+    #[DataProvider('createRequestDataProvider')]
+    #[Test]
     public function create(string $expectedXml): void
     {
         $requestBuilder = new CreateRequestBuilder();

@@ -5,7 +5,6 @@ includes:
     - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-phpunit/rules.neon
     - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-symfony/extension.neon
     - %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-symfony/rules.neon
-    - %currentWorkingDirectory%/phpstan-baseline.neon
 
 services:
     -

@@ -21,6 +21,8 @@ use Netresearch\Sdk\UniversalMessenger\Model\NewsletterChannel;
 use Netresearch\Sdk\UniversalMessenger\Model\NewsletterStatus;
 use Netresearch\Sdk\UniversalMessenger\Test\Provider\NewsletterProvider;
 use Netresearch\Sdk\UniversalMessenger\Test\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 /**
  * Class NewsletterTest.
@@ -66,16 +68,14 @@ class NewsletterTest extends TestCase
     /**
      * Tests "channels" method.
      *
-     * @dataProvider channelsResponseDataProvider
-     *
-     * @test
-     *
      * @param string $responseJsonFile
      *
      * @throws AuthenticationException
      * @throws DetailedServiceException
      * @throws ServiceException
      */
+    #[DataProvider('channelsResponseDataProvider')]
+    #[Test]
     public function newsletterChannels(string $responseJsonFile): void
     {
         $newsletterApi = $this->getNewsletterApi($responseJsonFile);
@@ -117,16 +117,14 @@ class NewsletterTest extends TestCase
     /**
      * Tests "status" method.
      *
-     * @dataProvider statusResponseDataProvider
-     *
-     * @test
-     *
      * @param string $responseJsonFile
      *
      * @throws AuthenticationException
      * @throws DetailedServiceException
      * @throws ServiceException
      */
+    #[DataProvider('statusResponseDataProvider')]
+    #[Test]
     public function newsletterStatus(string $responseJsonFile): void
     {
         $newsletterApi = $this->getNewsletterApi($responseJsonFile);

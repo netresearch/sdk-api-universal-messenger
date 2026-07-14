@@ -12,16 +12,18 @@ declare(strict_types=1);
 namespace Netresearch\Sdk\UniversalMessenger;
 
 use Closure;
+use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\LoggerPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Client\Common\PluginClientFactory;
 use Http\Discovery\Exception\NotFoundException;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
-use Http\Message\Formatter\FullHttpMessageFormatter;
+use Http\Message\Authentication\BasicAuth;
 use Netresearch\Sdk\UniversalMessenger\Exception\ServiceException;
 use Netresearch\Sdk\UniversalMessenger\Exception\ServiceExceptionFactory;
 use Netresearch\Sdk\UniversalMessenger\Http\ClientPlugin\ErrorPlugin;
+use Netresearch\Sdk\UniversalMessenger\Http\Formatter\RedactAuthorizationHeaderFormatter;
 use Netresearch\Sdk\UniversalMessenger\Serializer\JsonSerializer;
 use Netresearch\Sdk\UniversalMessenger\Serializer\XmlSerializer;
 use Psr\Log\LoggerInterface;
@@ -58,11 +60,18 @@ class UniversalMessenger
     private readonly XmlSerializer $xmlSerializer;
 
     /**
-     * The API key.
+     * The public API key used as the username for HTTP basic authentication.
      *
      * @var string
      */
     private readonly string $apiKey;
+
+    /**
+     * The secret API key used as the password for HTTP basic authentication.
+     *
+     * @var string
+     */
+    private readonly string $apiSecret;
 
     /**
      * Api instance for implementing lazy loading.
@@ -76,17 +85,20 @@ class UniversalMessenger
      *
      * @param LoggerInterface    $logger        A logger instance
      * @param string             $webserviceUrl The URL of the webservice endpoint
-     * @param string             $apiKey        The API key
+     * @param string             $apiKey        The public API key (basic auth username)
+     * @param string             $apiSecret     The secret API key (basic auth password)
      * @param string[]|Closure[] $classMap      A class map to override the default class names (source => target)
      */
     public function __construct(
         LoggerInterface $logger,
         string $webserviceUrl,
         string $apiKey,
+        string $apiSecret,
         array $classMap = [],
     ) {
-        $this->logger = $logger;
-        $this->apiKey = $apiKey;
+        $this->logger    = $logger;
+        $this->apiKey    = $apiKey;
+        $this->apiSecret = $apiSecret;
 
         $this->urlBuilder = new UrlBuilder();
         $this->urlBuilder
@@ -114,7 +126,10 @@ class UniversalMessenger
         return (new PluginClientFactory())->createClient(
             $httpClient,
             [
-                new LoggerPlugin($this->logger, new FullHttpMessageFormatter(null)),
+                new AuthenticationPlugin(
+                    new BasicAuth($this->apiKey, $this->apiSecret)
+                ),
+                new LoggerPlugin($this->logger, new RedactAuthorizationHeaderFormatter(null)),
                 new ErrorPlugin(),
             ]
         );
@@ -143,8 +158,7 @@ class UniversalMessenger
                 $streamFactory,
                 $this->jsonSerializer,
                 $this->xmlSerializer,
-                $this->urlBuilder,
-                $this->apiKey
+                $this->urlBuilder
             );
         }
 

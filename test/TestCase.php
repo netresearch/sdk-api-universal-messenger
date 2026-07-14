@@ -82,8 +82,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             Psr17FactoryDiscovery::findStreamFactory(),
             new JsonSerializer(),
             new XmlSerializer(),
-            $urlBuilder,
-            'TOTALLY-SECRET-API-KEY'
+            $urlBuilder
         );
 
         $serviceFactoryMock = $this

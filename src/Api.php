@@ -75,11 +75,6 @@ class Api
     private ?EventFile $eventFileApi = null;
 
     /**
-     * @var string
-     */
-    private readonly string $apiKey;
-
-    /**
      * Api constructor.
      *
      * @param ClientInterface         $client
@@ -88,7 +83,6 @@ class Api
      * @param JsonSerializer          $jsonSerializer
      * @param XmlSerializer           $xmlSerializer
      * @param UrlBuilder              $urlBuilder
-     * @param string                  $apiKey
      */
     public function __construct(
         ClientInterface $client,
@@ -97,7 +91,6 @@ class Api
         JsonSerializer $jsonSerializer,
         XmlSerializer $xmlSerializer,
         UrlBuilder $urlBuilder,
-        string $apiKey,
     ) {
         $this->client         = $client;
         $this->requestFactory = $requestFactory;
@@ -105,7 +98,6 @@ class Api
         $this->jsonSerializer = $jsonSerializer;
         $this->xmlSerializer  = $xmlSerializer;
         $this->urlBuilder     = $urlBuilder;
-        $this->apiKey         = $apiKey;
     }
 
     /**
@@ -117,10 +109,7 @@ class Api
     {
         $this->urlBuilder
             ->reset()
-            ->addPath('/' . Newsletter::PATH)
-            ->setParams([
-                'umopen' => $this->apiKey,
-            ]);
+            ->addPath('/' . Newsletter::PATH);
 
         if (!$this->newsletterApi instanceof Newsletter) {
             $this->newsletterApi = new Newsletter(
@@ -145,10 +134,7 @@ class Api
     {
         $this->urlBuilder
             ->reset()
-            ->addPath('/' . EventFile::PATH)
-            ->setParams([
-                'open' => $this->apiKey,
-            ]);
+            ->addPath('/' . EventFile::PATH);
 
         if (!$this->eventFileApi instanceof EventFile) {
             $this->eventFileApi = new EventFile(

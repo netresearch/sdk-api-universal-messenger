@@ -4,6 +4,10 @@ on:
     push:
     pull_request:
 
+# Least-privilege default for the GITHUB_TOKEN; the build only needs to read the repo.
+permissions:
+    contents: read
+
 jobs:
     build:
         runs-on: ubuntu-latest

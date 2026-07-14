@@ -329,7 +329,11 @@ class CreateRequestBuilder extends AbstractRequestBuilder
             'name'        => $name,
         ];
 
-        $fileHash = md5(serialize($file));
+        // Non-cryptographic key used only to de-duplicate attachments; the hash never
+        // leaves this builder (files are consumed by value further down), so the choice of
+        // algorithm is irrelevant to the produced request. SHA-256 keeps static analysers
+        // from flagging a "weak hash" here.
+        $fileHash = hash('sha256', serialize($file));
 
         if (!in_array($fileHash, $this->data['data']['email']['files'], true)) {
             $this->data['data']['email']['files'][$fileHash] = $file;

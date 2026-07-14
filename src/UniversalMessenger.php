@@ -20,10 +20,10 @@ use Http\Discovery\Exception\NotFoundException;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 use Http\Message\Authentication\BasicAuth;
-use Http\Message\Formatter\FullHttpMessageFormatter;
 use Netresearch\Sdk\UniversalMessenger\Exception\ServiceException;
 use Netresearch\Sdk\UniversalMessenger\Exception\ServiceExceptionFactory;
 use Netresearch\Sdk\UniversalMessenger\Http\ClientPlugin\ErrorPlugin;
+use Netresearch\Sdk\UniversalMessenger\Http\Formatter\RedactAuthorizationHeaderFormatter;
 use Netresearch\Sdk\UniversalMessenger\Serializer\JsonSerializer;
 use Netresearch\Sdk\UniversalMessenger\Serializer\XmlSerializer;
 use Psr\Log\LoggerInterface;
@@ -129,7 +129,7 @@ class UniversalMessenger
                 new AuthenticationPlugin(
                     new BasicAuth($this->apiKey, $this->apiSecret)
                 ),
-                new LoggerPlugin($this->logger, new FullHttpMessageFormatter(null)),
+                new LoggerPlugin($this->logger, new RedactAuthorizationHeaderFormatter(null)),
                 new ErrorPlugin(),
             ]
         );

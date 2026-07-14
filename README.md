@@ -14,3 +14,16 @@ The SDK currently implements only the endpoints and data structures that were re
 - [Basic usage & Limitations](doc/Basic.md)
 - [Endpoints](doc/Endpoints.md)
 - [Error handling](doc/ErrorHandling.md)
+
+## Compatibility
+The Universal Messenger REST API is not versioned on the client side. The SDK addresses fixed endpoints,
+and the behaviour — most notably the authentication scheme — depends on the Universal Messenger server
+version that is deployed. Authentication is therefore what distinguishes the server generations, and the
+SDK major version reflects the supported era:
+
+| SDK      | Authentication                                                     | Universal Messenger server |
+|:---------|:-------------------------------------------------------------------|:---------------------------|
+| `^2.0`   | API token via the `umopen`/`open` query parameter (`cmsbs.open`)   | up to UM 7.40              |
+| `^3.0`   | API key (public key + secret) via HTTP basic authentication        | UM after 7.40              |
+
+Pin the SDK major version to match your Universal Messenger server.

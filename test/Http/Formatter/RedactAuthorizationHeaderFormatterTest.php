@@ -26,7 +26,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RedactAuthorizationHeaderFormatterTest extends TestCase
 {
-    private const SECRET = 'dG9wLXNlY3JldC1jcmVkZW50aWFscw==';
+    private const AUTHORIZATION_HEADER = 'Basic not-a-real-credential';
 
     #[Test]
     public function redactsAuthorizationHeaderWhenFormattingRequest(): void
@@ -34,11 +34,11 @@ class RedactAuthorizationHeaderFormatterTest extends TestCase
         $formatter = new RedactAuthorizationHeaderFormatter(null);
 
         $request = (new Request('GET', 'https://www.example.org/p'))
-            ->withHeader('Authorization', 'Basic ' . self::SECRET);
+            ->withHeader('Authorization', self::AUTHORIZATION_HEADER);
 
         $formatted = $formatter->formatRequest($request);
 
-        self::assertStringNotContainsString(self::SECRET, $formatted);
+        self::assertStringNotContainsString('not-a-real-credential', $formatted);
         self::assertStringContainsString('Authorization: ****', $formatted);
     }
 
@@ -61,11 +61,11 @@ class RedactAuthorizationHeaderFormatterTest extends TestCase
         $formatter = new RedactAuthorizationHeaderFormatter(null);
 
         $request = (new Request('GET', 'https://www.example.org/p'))
-            ->withHeader('Authorization', 'Basic ' . self::SECRET);
+            ->withHeader('Authorization', self::AUTHORIZATION_HEADER);
 
         $formatter->formatRequest($request);
 
-        self::assertSame('Basic ' . self::SECRET, $request->getHeaderLine('Authorization'));
+        self::assertSame(self::AUTHORIZATION_HEADER, $request->getHeaderLine('Authorization'));
     }
 
     #[Test]
@@ -74,10 +74,10 @@ class RedactAuthorizationHeaderFormatterTest extends TestCase
         $formatter = new RedactAuthorizationHeaderFormatter(null);
 
         $request = (new Request('GET', 'https://www.example.org/p'))
-            ->withHeader('Authorization', 'Basic ' . self::SECRET);
+            ->withHeader('Authorization', self::AUTHORIZATION_HEADER);
 
         $formatted = $formatter->formatResponseForRequest(new Response(200), $request);
 
-        self::assertStringNotContainsString(self::SECRET, $formatted);
+        self::assertStringNotContainsString('not-a-real-credential', $formatted);
     }
 }

@@ -40,7 +40,7 @@ class Newsletter extends AbstractApiEndpoint
     /**
      * Returns a list of all newsletter channels.
      *
-     * GET https://<BASE-URL>/de.pinuts.cmsbs.restapi.Channels/index?umopen=
+     * GET https://<BASE-URL>/de.pinuts.cmsbs.restapi.Channels/index
      *
      * @return NewsletterChannelCollection
      *
@@ -64,7 +64,7 @@ class Newsletter extends AbstractApiEndpoint
     /**
      * Returns the status of a newsletter delivery.
      *
-     * GET https://<BASE-URL>/de.pinuts.cmsbs.restapi.NewsletterQueue/status/<eventId>?umopen=
+     * GET https://<BASE-URL>/de.pinuts.cmsbs.restapi.NewsletterQueue/status/<eventId>
      *
      * @param string $eventId
      *

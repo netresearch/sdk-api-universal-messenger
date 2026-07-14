@@ -82,7 +82,7 @@ class NewsletterTest extends TestCase
         $result        = $newsletterApi->channels();
 
         self::assertWebserviceUrl(
-            'https://www.example.org/de.pinuts.cmsbs.restapi.Channels/index?umopen=TOTALLY-SECRET-API-KEY',
+            'https://www.example.org/de.pinuts.cmsbs.restapi.Channels/index',
             $newsletterApi
         );
 
@@ -131,7 +131,7 @@ class NewsletterTest extends TestCase
         $result        = $newsletterApi->status('FAKE-EVENT-ID');
 
         self::assertWebserviceUrl(
-            'https://www.example.org/de.pinuts.cmsbs.restapi.NewsletterQueue/status/FAKE-EVENT-ID?umopen=TOTALLY-SECRET-API-KEY',
+            'https://www.example.org/de.pinuts.cmsbs.restapi.NewsletterQueue/status/FAKE-EVENT-ID',
             $newsletterApi
         );
 

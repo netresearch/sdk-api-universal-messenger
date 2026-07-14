@@ -52,7 +52,7 @@ class EventFileTest extends TestCase
         $result       = $eventFileApi->event(new Event());
 
         self::assertWebserviceUrl(
-            'https://www.example.org/de.pinuts.cmsbs.restsend.EventFile/?open=TOTALLY-SECRET-API-KEY',
+            'https://www.example.org/de.pinuts.cmsbs.restsend.EventFile/',
             $eventFileApi
         );
 

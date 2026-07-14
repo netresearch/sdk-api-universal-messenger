@@ -4,8 +4,8 @@ builders to create a valid request object. This allows you the using of the SDK 
 underlying API. Use the request object together with the desired API endpoint method to call the interface.
 
 ## Create an API instance
-First of all you need to create a new API instance. You pass the base API URL together with the API key
-and secret to this instance.
+First of all you need to create a new API instance. You pass a PSR-3 logger, the base API URL and the
+API key and secret to this instance.
 
 ```php
 // Create API client instance

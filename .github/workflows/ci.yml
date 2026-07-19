@@ -13,7 +13,7 @@ jobs:
     php-ci:
         permissions:
             contents: read
-        uses: netresearch/.github/.github/workflows/php-ci.yml@5f7fe51f77e653a89055363afafd63442fe9ecf6 # main
+        uses: netresearch/.github/.github/workflows/php-ci.yml@c17280ddc8e7b4392fd570c771dfd0835a5e3870 # main
         with:
             php-versions: '["8.2", "8.3", "8.4", "8.5"]'
             extensions: "mbstring, intl, json, simplexml, xmlwriter"

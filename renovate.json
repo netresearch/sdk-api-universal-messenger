@@ -6,6 +6,14 @@
     ":automergeMinor",
     ":automergePatch"
   ],
+  "packageRules": [
+    {
+      "description": "Do not pin org-internal reusable workflows (use @main)",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["netresearch/**"],
+      "pinDigests": false
+    }
+  ],
   "automerge": true,
   "automergeType": "pr",
   "platformAutomerge": true

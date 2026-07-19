@@ -4,12 +4,15 @@ on:
     push:
     pull_request:
 
-# Least-privilege default for the GITHUB_TOKEN; the reusable's job declares
-# its own `contents: read`, so the caller needs nothing at the top level.
+# Least-privilege default for the GITHUB_TOKEN; the calling job grants the
+# `contents: read` the reusable requires (a reusable cannot obtain a
+# permission the caller did not grant — otherwise the run startup-fails).
 permissions: {}
 
 jobs:
     php-ci:
+        permissions:
+            contents: read
         uses: netresearch/.github/.github/workflows/php-ci.yml@main
         with:
             php-versions: '["8.2", "8.3", "8.4", "8.5"]'

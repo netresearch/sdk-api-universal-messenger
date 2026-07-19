@@ -17,7 +17,11 @@ jobs:
         with:
             php-versions: '["8.2", "8.3", "8.4", "8.5"]'
             extensions: "mbstring, intl, json, simplexml, xmlwriter"
-            composer-validate: true
+            # composer validate --strict rejects this library's intentional
+            # unbound `*` constraints for the virtual psr/http-*-implementation
+            # packages; run non-strict validate before install instead.
+            composer-validate: false
+            pre-install-cmd: "composer validate"
             run-phpstan: true
             phpstan-cmd: "composer ci:test:php:phpstan -- --error-format=github"
             run-rector: true

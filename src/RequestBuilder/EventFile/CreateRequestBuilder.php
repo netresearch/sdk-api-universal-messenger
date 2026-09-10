@@ -109,9 +109,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function addTag(string $tag): CreateRequestBuilder
     {
-        if (!isset($this->data['event']['tag'])) {
-            $this->data['event']['tag'] = [];
-        }
+        $this->data['event']['tag'] ??= [];
 
         if (!in_array($tag, $this->data['event']['tag'], true)) {
             $this->data['event']['tag'][] = $tag;
@@ -129,9 +127,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function addChannel(string $channel): CreateRequestBuilder
     {
-        if (!isset($this->data['destination']['channel'])) {
-            $this->data['destination']['channel'] = [];
-        }
+        $this->data['destination']['channel'] ??= [];
 
         if (!in_array($channel, $this->data['destination']['channel'], true)) {
             $this->data['destination']['channel'][] = $channel;
@@ -149,9 +145,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
      */
     public function addVirtualChannel(string $vchannel): CreateRequestBuilder
     {
-        if (!isset($this->data['destination']['vchannel'])) {
-            $this->data['destination']['vchannel'] = [];
-        }
+        $this->data['destination']['vchannel'] ??= [];
 
         if (!in_array($vchannel, $this->data['destination']['vchannel'], true)) {
             $this->data['destination']['vchannel'][] = $vchannel;
@@ -318,9 +312,7 @@ class CreateRequestBuilder extends AbstractRequestBuilder
         ?bool $inline,
         ?string $name,
     ): CreateRequestBuilder {
-        if (!isset($this->data['data']['email']['files'])) {
-            $this->data['data']['email']['files'] = [];
-        }
+        $this->data['data']['email']['files'] ??= [];
 
         $file = [
             'content'     => $content,

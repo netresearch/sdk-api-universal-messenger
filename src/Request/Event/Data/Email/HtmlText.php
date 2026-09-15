@@ -135,6 +135,14 @@ class HtmlText implements XmlSerializable
     }
 
     /**
+     * @return bool|null TRUE if the HTML text is given directly as the element content, FALSE if it should be read from the file/URL
+     */
+    public function getInline(): ?bool
+    {
+        return $this->inline;
+    }
+
+    /**
      * @param string|null $charset
      *
      * @return HtmlText
@@ -144,6 +152,14 @@ class HtmlText implements XmlSerializable
         $this->charset = $charset;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The encoding
+     */
+    public function getCharset(): ?string
+    {
+        return $this->charset;
     }
 
     /**
@@ -159,6 +175,14 @@ class HtmlText implements XmlSerializable
     }
 
     /**
+     * @return string The behavior for embedding images ("all", "byPath" or "none")
+     */
+    public function getEmbedImages(): string
+    {
+        return $this->embedImages;
+    }
+
+    /**
      * @param string|null $baseUrl
      *
      * @return HtmlText
@@ -168,6 +192,14 @@ class HtmlText implements XmlSerializable
         $this->baseUrl = $baseUrl;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The URL that precedes the relative links
+     */
+    public function getBaseUrl(): ?string
+    {
+        return $this->baseUrl;
     }
 
     /**
@@ -183,6 +215,14 @@ class HtmlText implements XmlSerializable
     }
 
     /**
+     * @return string|null The URL from which referenced files are downloaded
+     */
+    public function getDownloadUrl(): ?string
+    {
+        return $this->downloadUrl;
+    }
+
+    /**
      * @param bool|null $linkTracking
      *
      * @return HtmlText
@@ -192,6 +232,14 @@ class HtmlText implements XmlSerializable
         $this->linkTracking = $linkTracking;
 
         return $this;
+    }
+
+    /**
+     * @return bool|null FALSE if click tracking should be deactivated for this newsletter
+     */
+    public function getLinkTracking(): ?bool
+    {
+        return $this->linkTracking;
     }
 
     /**
@@ -207,6 +255,14 @@ class HtmlText implements XmlSerializable
     }
 
     /**
+     * @return bool|null FALSE if open tracking should be deactivated for this newsletter
+     */
+    public function getViewTracking(): ?bool
+    {
+        return $this->viewTracking;
+    }
+
+    /**
      * @param string|null $renderCallback
      *
      * @return HtmlText
@@ -216,6 +272,14 @@ class HtmlText implements XmlSerializable
         $this->renderCallback = $renderCallback;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The function name of a CSE callback to call when the newsletter is rendered
+     */
+    public function getRenderCallback(): ?string
+    {
+        return $this->renderCallback;
     }
 
     /**
@@ -231,6 +295,14 @@ class HtmlText implements XmlSerializable
     }
 
     /**
+     * @return string|null The URL of the publicly accessible REST proxy
+     */
+    public function getRestProxyUrl(): ?string
+    {
+        return $this->restProxyUrl;
+    }
+
+    /**
      * @param string|null $content
      *
      * @return HtmlText
@@ -240,5 +312,13 @@ class HtmlText implements XmlSerializable
         $this->content = $content;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The HTML text to send
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
     }
 }

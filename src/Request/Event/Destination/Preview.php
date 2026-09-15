@@ -53,6 +53,14 @@ class Preview implements XmlSerializable
     }
 
     /**
+     * @return string The preview service (currently only "litmus" is possible)
+     */
+    public function getService(): string
+    {
+        return $this->service;
+    }
+
+    /**
      * @param BaseEntry|null $baseEntry
      *
      * @return Preview
@@ -62,5 +70,13 @@ class Preview implements XmlSerializable
         $this->baseEntry = $baseEntry;
 
         return $this;
+    }
+
+    /**
+     * @return BaseEntry|null The entry used to uniquely identify a recipient for personalizing the preview
+     */
+    public function getBaseEntry(): ?BaseEntry
+    {
+        return $this->baseEntry;
     }
 }

@@ -53,6 +53,14 @@ class Date implements XmlSerializable
     }
 
     /**
+     * @return string The date/time value
+     */
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    /**
      * @param string|null $format
      *
      * @return Date
@@ -62,5 +70,13 @@ class Date implements XmlSerializable
         $this->format = $format;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The date/time format between tags, defaults to "dd.MM.yyyy HH:mm:ss"
+     */
+    public function getFormat(): ?string
+    {
+        return $this->format;
     }
 }

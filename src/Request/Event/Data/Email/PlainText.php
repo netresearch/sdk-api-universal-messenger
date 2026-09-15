@@ -97,6 +97,14 @@ class PlainText implements XmlSerializable
     }
 
     /**
+     * @return bool|null TRUE if the text is given directly as the element content, FALSE if it should be read from the file/URL
+     */
+    public function getInline(): ?bool
+    {
+        return $this->inline;
+    }
+
+    /**
      * @param string|null $charset
      *
      * @return PlainText
@@ -106,6 +114,14 @@ class PlainText implements XmlSerializable
         $this->charset = $charset;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The encoding
+     */
+    public function getCharset(): ?string
+    {
+        return $this->charset;
     }
 
     /**
@@ -121,6 +137,14 @@ class PlainText implements XmlSerializable
     }
 
     /**
+     * @return string|null The URL that precedes the relative links
+     */
+    public function getBaseUrl(): ?string
+    {
+        return $this->baseUrl;
+    }
+
+    /**
      * @param string|null $downloadUrl
      *
      * @return PlainText
@@ -130,6 +154,14 @@ class PlainText implements XmlSerializable
         $this->downloadUrl = $downloadUrl;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The URL from which referenced files are downloaded
+     */
+    public function getDownloadUrl(): ?string
+    {
+        return $this->downloadUrl;
     }
 
     /**
@@ -145,6 +177,14 @@ class PlainText implements XmlSerializable
     }
 
     /**
+     * @return bool|null FALSE if click tracking should be deactivated for this newsletter
+     */
+    public function getLinkTracking(): ?bool
+    {
+        return $this->linkTracking;
+    }
+
+    /**
      * @param string|null $renderCallback
      *
      * @return PlainText
@@ -157,6 +197,14 @@ class PlainText implements XmlSerializable
     }
 
     /**
+     * @return string|null The function name of a CSE callback to call when the newsletter is rendered
+     */
+    public function getRenderCallback(): ?string
+    {
+        return $this->renderCallback;
+    }
+
+    /**
      * @param string|null $content
      *
      * @return PlainText
@@ -166,5 +214,13 @@ class PlainText implements XmlSerializable
         $this->content = $content;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The plain text to send
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
     }
 }

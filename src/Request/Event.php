@@ -128,6 +128,14 @@ class Event implements RequestInterface
     }
 
     /**
+     * @return string|null The unique identifier (if no ID was specified, a random ID will be generated)
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
      * @param string|null $newsletterGroup
      */
     public function setNewsletterGroup(?string $newsletterGroup): Event
@@ -135,6 +143,14 @@ class Event implements RequestInterface
         $this->newsletterGroup = $newsletterGroup;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The newsletter series this newsletter is assigned to
+     */
+    public function getNewsletterGroup(): ?string
+    {
+        return $this->newsletterGroup;
     }
 
     /**
@@ -148,6 +164,14 @@ class Event implements RequestInterface
     }
 
     /**
+     * @return bool|null TRUE (default) if the sending should be canceled if there is already a newsletter with the same event ID in the archive
+     */
+    public function getSkipUsedIDs(): ?bool
+    {
+        return $this->skipUsedIDs;
+    }
+
+    /**
      * @param bool|null $archiveSkipped
      */
     public function setArchiveSkipped(?bool $archiveSkipped): Event
@@ -155,6 +179,14 @@ class Event implements RequestInterface
         $this->archiveSkipped = $archiveSkipped;
 
         return $this;
+    }
+
+    /**
+     * @return bool|null Whether skipped newsletters are still saved in the archive with the status "Cancelled"
+     */
+    public function getArchiveSkipped(): ?bool
+    {
+        return $this->archiveSkipped;
     }
 
     /**
@@ -168,6 +200,14 @@ class Event implements RequestInterface
     }
 
     /**
+     * @return bool|null FALSE if the newsletter should not be saved in the archive
+     */
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
+    /**
      * @param string|null $createdBy
      */
     public function setCreatedBy(?string $createdBy): Event
@@ -175,6 +215,14 @@ class Event implements RequestInterface
         $this->createdBy = $createdBy;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The username of the user who triggered the newsletter dispatch
+     */
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
     }
 
     /**
@@ -188,6 +236,14 @@ class Event implements RequestInterface
     }
 
     /**
+     * @return string|null The display username of the user who triggered the newsletter dispatch
+     */
+    public function getCreatedByDisplayName(): ?string
+    {
+        return $this->createdByDisplayName;
+    }
+
+    /**
      * @param Destination|null $destination
      */
     public function setDestination(?Destination $destination): Event
@@ -195,6 +251,14 @@ class Event implements RequestInterface
         $this->destination = $destination;
 
         return $this;
+    }
+
+    /**
+     * @return Destination|null The destination(s) the newsletter is addressed to
+     */
+    public function getDestination(): ?Destination
+    {
+        return $this->destination;
     }
 
     /**
@@ -208,6 +272,14 @@ class Event implements RequestInterface
     }
 
     /**
+     * @return Data|null The content to be sent in the newsletter
+     */
+    public function getData(): ?Data
+    {
+        return $this->data;
+    }
+
+    /**
      * @param Date|null $date
      */
     public function setDate(?Date $date): Event
@@ -215,6 +287,14 @@ class Event implements RequestInterface
         $this->date = $date;
 
         return $this;
+    }
+
+    /**
+     * @return Date|null The sending time for the newsletter, or NULL for immediate sending
+     */
+    public function getDate(): ?Date
+    {
+        return $this->date;
     }
 
     /**
@@ -235,5 +315,13 @@ class Event implements RequestInterface
         $this->tag[] = $tag;
 
         return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getTags(): array
+    {
+        return $this->tag;
     }
 }

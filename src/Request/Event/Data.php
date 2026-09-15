@@ -61,6 +61,14 @@ class Data implements XmlSerializable
     }
 
     /**
+     * @return string|null The recipient email address, with personalization variables
+     */
+    public function getMailto(): ?string
+    {
+        return $this->mailto;
+    }
+
+    /**
      * @param Email|null $email
      *
      * @return Data
@@ -73,6 +81,14 @@ class Data implements XmlSerializable
     }
 
     /**
+     * @return Email|null Information about the email to be sent
+     */
+    public function getEmail(): ?Email
+    {
+        return $this->email;
+    }
+
+    /**
      * @param string|null $message
      *
      * @return Data
@@ -82,5 +98,13 @@ class Data implements XmlSerializable
         $this->message = $message;
 
         return $this;
+    }
+
+    /**
+     * @return string|null Information about the internal message to be sent
+     */
+    public function getMessage(): ?string
+    {
+        return $this->message;
     }
 }

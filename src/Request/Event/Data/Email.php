@@ -139,6 +139,14 @@ class Email implements XmlSerializable
     }
 
     /**
+     * @return string|null The sender ID overwriting the configuration file preset
+     */
+    public function getSender(): ?string
+    {
+        return $this->sender;
+    }
+
+    /**
      * @param string|null $replyto
      *
      * @return Email
@@ -148,6 +156,14 @@ class Email implements XmlSerializable
         $this->replyto = $replyto;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The Reply-To address overwriting the configuration file preset
+     */
+    public function getReplyto(): ?string
+    {
+        return $this->replyto;
     }
 
     /**
@@ -163,6 +179,14 @@ class Email implements XmlSerializable
     }
 
     /**
+     * @return string|null The Envelope-From address overwriting the configuration file preset
+     */
+    public function getEnvelopeFrom(): ?string
+    {
+        return $this->envelopeFrom;
+    }
+
+    /**
      * @param bool|null $obeyPreferHtml
      *
      * @return Email
@@ -172,6 +196,14 @@ class Email implements XmlSerializable
         $this->obeyPreferHtml = $obeyPreferHtml;
 
         return $this;
+    }
+
+    /**
+     * @return bool|null TRUE if the HTML email should only be sent to subscribers with the "html" attribute set
+     */
+    public function getObeyPreferHtml(): ?bool
+    {
+        return $this->obeyPreferHtml;
     }
 
     /**
@@ -187,6 +219,14 @@ class Email implements XmlSerializable
     }
 
     /**
+     * @return bool|null TRUE if the HTML email is sent as "multipart/alternative" and also contains the text part
+     */
+    public function getSendBothParts(): ?bool
+    {
+        return $this->sendBothParts;
+    }
+
+    /**
      * @param string|null $baseUrl
      *
      * @return Email
@@ -196,6 +236,14 @@ class Email implements XmlSerializable
         $this->baseUrl = $baseUrl;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The URL that precedes the relative links
+     */
+    public function getBaseUrl(): ?string
+    {
+        return $this->baseUrl;
     }
 
     /**
@@ -211,6 +259,14 @@ class Email implements XmlSerializable
     }
 
     /**
+     * @return string|null The URL from which referenced files are downloaded
+     */
+    public function getDownloadUrl(): ?string
+    {
+        return $this->downloadUrl;
+    }
+
+    /**
      * @param string|null $trackingMode
      *
      * @return Email
@@ -220,6 +276,14 @@ class Email implements XmlSerializable
         $this->trackingMode = $trackingMode;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The tracking mode overwriting the configuration file preset
+     */
+    public function getTrackingMode(): ?string
+    {
+        return $this->trackingMode;
     }
 
     /**
@@ -235,6 +299,14 @@ class Email implements XmlSerializable
     }
 
     /**
+     * @return string|null The subject of the email
+     */
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    /**
      * @param HtmlText|null $htmltext
      *
      * @return Email
@@ -247,6 +319,14 @@ class Email implements XmlSerializable
     }
 
     /**
+     * @return HtmlText|null The HTML email details
+     */
+    public function getHtmltext(): ?HtmlText
+    {
+        return $this->htmltext;
+    }
+
+    /**
      * @param PlainText|null $plaintext
      *
      * @return Email
@@ -256,6 +336,14 @@ class Email implements XmlSerializable
         $this->plaintext = $plaintext;
 
         return $this;
+    }
+
+    /**
+     * @return PlainText|null The text email details
+     */
+    public function getPlaintext(): ?PlainText
+    {
+        return $this->plaintext;
     }
 
     /**
@@ -280,5 +368,13 @@ class Email implements XmlSerializable
         $this->file[] = $file;
 
         return $this;
+    }
+
+    /**
+     * @return File[] Information about the attachments
+     */
+    public function getFiles(): array
+    {
+        return $this->file;
     }
 }

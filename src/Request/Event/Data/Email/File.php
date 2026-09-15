@@ -66,6 +66,14 @@ class File implements XmlSerializable
     }
 
     /**
+     * @return string|null The "content-name" for the attachment (defaults to the file name)
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
      * @param string|null $disposition
      *
      * @return File
@@ -75,6 +83,14 @@ class File implements XmlSerializable
         $this->disposition = $disposition;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The attachment's disposition
+     */
+    public function getDisposition(): ?string
+    {
+        return $this->disposition;
     }
 
     /**
@@ -90,6 +106,14 @@ class File implements XmlSerializable
     }
 
     /**
+     * @return bool|null Whether the attachment is embedded inline
+     */
+    public function getInline(): ?bool
+    {
+        return $this->inline;
+    }
+
+    /**
      * @param string|null $content
      *
      * @return File
@@ -99,5 +123,13 @@ class File implements XmlSerializable
         $this->content = $content;
 
         return $this;
+    }
+
+    /**
+     * @return string|null The base64 encoded file content
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
     }
 }

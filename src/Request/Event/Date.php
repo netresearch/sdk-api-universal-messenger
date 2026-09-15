@@ -53,6 +53,14 @@ class Date implements XmlSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    /**
      * @param string|null $format
      *
      * @return Date
@@ -62,5 +70,10 @@ class Date implements XmlSerializable
         $this->format = $format;
 
         return $this;
+    }
+
+    public function getFormat(): ?string
+    {
+        return $this->format;
     }
 }

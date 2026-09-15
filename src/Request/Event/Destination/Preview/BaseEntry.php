@@ -44,4 +44,9 @@ class BaseEntry implements XmlSerializable
 
         return $this;
     }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
 }

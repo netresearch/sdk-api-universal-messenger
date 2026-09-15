@@ -96,6 +96,11 @@ class PlainText implements XmlSerializable
         return $this;
     }
 
+    public function getInline(): ?bool
+    {
+        return $this->inline;
+    }
+
     /**
      * @param string|null $charset
      *
@@ -106,6 +111,11 @@ class PlainText implements XmlSerializable
         $this->charset = $charset;
 
         return $this;
+    }
+
+    public function getCharset(): ?string
+    {
+        return $this->charset;
     }
 
     /**
@@ -120,6 +130,11 @@ class PlainText implements XmlSerializable
         return $this;
     }
 
+    public function getBaseUrl(): ?string
+    {
+        return $this->baseUrl;
+    }
+
     /**
      * @param string|null $downloadUrl
      *
@@ -130,6 +145,11 @@ class PlainText implements XmlSerializable
         $this->downloadUrl = $downloadUrl;
 
         return $this;
+    }
+
+    public function getDownloadUrl(): ?string
+    {
+        return $this->downloadUrl;
     }
 
     /**
@@ -144,6 +164,11 @@ class PlainText implements XmlSerializable
         return $this;
     }
 
+    public function getLinkTracking(): ?bool
+    {
+        return $this->linkTracking;
+    }
+
     /**
      * @param string|null $renderCallback
      *
@@ -156,6 +181,11 @@ class PlainText implements XmlSerializable
         return $this;
     }
 
+    public function getRenderCallback(): ?string
+    {
+        return $this->renderCallback;
+    }
+
     /**
      * @param string|null $content
      *
@@ -166,5 +196,10 @@ class PlainText implements XmlSerializable
         $this->content = $content;
 
         return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
     }
 }

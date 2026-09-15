@@ -138,6 +138,11 @@ class Email implements XmlSerializable
         return $this;
     }
 
+    public function getSender(): ?string
+    {
+        return $this->sender;
+    }
+
     /**
      * @param string|null $replyto
      *
@@ -148,6 +153,11 @@ class Email implements XmlSerializable
         $this->replyto = $replyto;
 
         return $this;
+    }
+
+    public function getReplyto(): ?string
+    {
+        return $this->replyto;
     }
 
     /**
@@ -162,6 +172,11 @@ class Email implements XmlSerializable
         return $this;
     }
 
+    public function getEnvelopeFrom(): ?string
+    {
+        return $this->envelopeFrom;
+    }
+
     /**
      * @param bool|null $obeyPreferHtml
      *
@@ -172,6 +187,11 @@ class Email implements XmlSerializable
         $this->obeyPreferHtml = $obeyPreferHtml;
 
         return $this;
+    }
+
+    public function getObeyPreferHtml(): ?bool
+    {
+        return $this->obeyPreferHtml;
     }
 
     /**
@@ -186,6 +206,11 @@ class Email implements XmlSerializable
         return $this;
     }
 
+    public function getSendBothParts(): ?bool
+    {
+        return $this->sendBothParts;
+    }
+
     /**
      * @param string|null $baseUrl
      *
@@ -196,6 +221,11 @@ class Email implements XmlSerializable
         $this->baseUrl = $baseUrl;
 
         return $this;
+    }
+
+    public function getBaseUrl(): ?string
+    {
+        return $this->baseUrl;
     }
 
     /**
@@ -210,6 +240,11 @@ class Email implements XmlSerializable
         return $this;
     }
 
+    public function getDownloadUrl(): ?string
+    {
+        return $this->downloadUrl;
+    }
+
     /**
      * @param string|null $trackingMode
      *
@@ -220,6 +255,11 @@ class Email implements XmlSerializable
         $this->trackingMode = $trackingMode;
 
         return $this;
+    }
+
+    public function getTrackingMode(): ?string
+    {
+        return $this->trackingMode;
     }
 
     /**
@@ -234,6 +274,11 @@ class Email implements XmlSerializable
         return $this;
     }
 
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
     /**
      * @param HtmlText|null $htmltext
      *
@@ -246,6 +291,11 @@ class Email implements XmlSerializable
         return $this;
     }
 
+    public function getHtmltext(): ?HtmlText
+    {
+        return $this->htmltext;
+    }
+
     /**
      * @param PlainText|null $plaintext
      *
@@ -256,6 +306,11 @@ class Email implements XmlSerializable
         $this->plaintext = $plaintext;
 
         return $this;
+    }
+
+    public function getPlaintext(): ?PlainText
+    {
+        return $this->plaintext;
     }
 
     /**
@@ -280,5 +335,13 @@ class Email implements XmlSerializable
         $this->file[] = $file;
 
         return $this;
+    }
+
+    /**
+     * @return File[]
+     */
+    public function getFiles(): array
+    {
+        return $this->file;
     }
 }

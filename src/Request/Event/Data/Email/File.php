@@ -65,6 +65,11 @@ class File implements XmlSerializable
         return $this;
     }
 
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
     /**
      * @param string|null $disposition
      *
@@ -75,6 +80,11 @@ class File implements XmlSerializable
         $this->disposition = $disposition;
 
         return $this;
+    }
+
+    public function getDisposition(): ?string
+    {
+        return $this->disposition;
     }
 
     /**
@@ -89,6 +99,11 @@ class File implements XmlSerializable
         return $this;
     }
 
+    public function getInline(): ?bool
+    {
+        return $this->inline;
+    }
+
     /**
      * @param string|null $content
      *
@@ -99,5 +114,10 @@ class File implements XmlSerializable
         $this->content = $content;
 
         return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
     }
 }

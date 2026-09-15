@@ -60,6 +60,11 @@ class Data implements XmlSerializable
         return $this;
     }
 
+    public function getMailto(): ?string
+    {
+        return $this->mailto;
+    }
+
     /**
      * @param Email|null $email
      *
@@ -72,6 +77,11 @@ class Data implements XmlSerializable
         return $this;
     }
 
+    public function getEmail(): ?Email
+    {
+        return $this->email;
+    }
+
     /**
      * @param string|null $message
      *
@@ -82,5 +92,10 @@ class Data implements XmlSerializable
         $this->message = $message;
 
         return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
     }
 }

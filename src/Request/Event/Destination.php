@@ -85,6 +85,14 @@ class Destination implements XmlSerializable
     }
 
     /**
+     * @return string[]
+     */
+    public function getChannels(): array
+    {
+        return $this->channel;
+    }
+
+    /**
      * @param string[] $virtualChannels
      *
      * @return Destination
@@ -109,6 +117,14 @@ class Destination implements XmlSerializable
     }
 
     /**
+     * @return string[]
+     */
+    public function getVChannels(): array
+    {
+        return $this->vchannel;
+    }
+
+    /**
      * Sets the query to select the recipients to whom the newsletter should be addressed.
      *
      * @param string|null $query
@@ -122,6 +138,11 @@ class Destination implements XmlSerializable
         return $this;
     }
 
+    public function getQuery(): ?string
+    {
+        return $this->query;
+    }
+
     /**
      * @param Preview|null $preview
      *
@@ -132,5 +153,10 @@ class Destination implements XmlSerializable
         $this->preview = $preview;
 
         return $this;
+    }
+
+    public function getPreview(): ?Preview
+    {
+        return $this->preview;
     }
 }

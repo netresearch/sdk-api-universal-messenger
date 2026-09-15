@@ -127,6 +127,11 @@ class Event implements RequestInterface
         return $this;
     }
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
     /**
      * @param string|null $newsletterGroup
      */
@@ -135,6 +140,11 @@ class Event implements RequestInterface
         $this->newsletterGroup = $newsletterGroup;
 
         return $this;
+    }
+
+    public function getNewsletterGroup(): ?string
+    {
+        return $this->newsletterGroup;
     }
 
     /**
@@ -147,6 +157,11 @@ class Event implements RequestInterface
         return $this;
     }
 
+    public function getSkipUsedIDs(): ?bool
+    {
+        return $this->skipUsedIDs;
+    }
+
     /**
      * @param bool|null $archiveSkipped
      */
@@ -155,6 +170,11 @@ class Event implements RequestInterface
         $this->archiveSkipped = $archiveSkipped;
 
         return $this;
+    }
+
+    public function getArchiveSkipped(): ?bool
+    {
+        return $this->archiveSkipped;
     }
 
     /**
@@ -167,6 +187,11 @@ class Event implements RequestInterface
         return $this;
     }
 
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
     /**
      * @param string|null $createdBy
      */
@@ -175,6 +200,11 @@ class Event implements RequestInterface
         $this->createdBy = $createdBy;
 
         return $this;
+    }
+
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
     }
 
     /**
@@ -187,6 +217,11 @@ class Event implements RequestInterface
         return $this;
     }
 
+    public function getCreatedByDisplayName(): ?string
+    {
+        return $this->createdByDisplayName;
+    }
+
     /**
      * @param Destination|null $destination
      */
@@ -195,6 +230,11 @@ class Event implements RequestInterface
         $this->destination = $destination;
 
         return $this;
+    }
+
+    public function getDestination(): ?Destination
+    {
+        return $this->destination;
     }
 
     /**
@@ -207,6 +247,11 @@ class Event implements RequestInterface
         return $this;
     }
 
+    public function getData(): ?Data
+    {
+        return $this->data;
+    }
+
     /**
      * @param Date|null $date
      */
@@ -215,6 +260,11 @@ class Event implements RequestInterface
         $this->date = $date;
 
         return $this;
+    }
+
+    public function getDate(): ?Date
+    {
+        return $this->date;
     }
 
     /**
@@ -235,5 +285,13 @@ class Event implements RequestInterface
         $this->tag[] = $tag;
 
         return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getTags(): array
+    {
+        return $this->tag;
     }
 }

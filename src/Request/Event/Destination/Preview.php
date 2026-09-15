@@ -53,6 +53,14 @@ class Preview implements XmlSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getService(): string
+    {
+        return $this->service;
+    }
+
+    /**
      * @param BaseEntry|null $baseEntry
      *
      * @return Preview
@@ -62,5 +70,10 @@ class Preview implements XmlSerializable
         $this->baseEntry = $baseEntry;
 
         return $this;
+    }
+
+    public function getBaseEntry(): ?BaseEntry
+    {
+        return $this->baseEntry;
     }
 }

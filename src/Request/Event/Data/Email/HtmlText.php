@@ -134,6 +134,11 @@ class HtmlText implements XmlSerializable
         return $this;
     }
 
+    public function getInline(): ?bool
+    {
+        return $this->inline;
+    }
+
     /**
      * @param string|null $charset
      *
@@ -144,6 +149,11 @@ class HtmlText implements XmlSerializable
         $this->charset = $charset;
 
         return $this;
+    }
+
+    public function getCharset(): ?string
+    {
+        return $this->charset;
     }
 
     /**
@@ -159,6 +169,14 @@ class HtmlText implements XmlSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getEmbedImages(): string
+    {
+        return $this->embedImages;
+    }
+
+    /**
      * @param string|null $baseUrl
      *
      * @return HtmlText
@@ -168,6 +186,11 @@ class HtmlText implements XmlSerializable
         $this->baseUrl = $baseUrl;
 
         return $this;
+    }
+
+    public function getBaseUrl(): ?string
+    {
+        return $this->baseUrl;
     }
 
     /**
@@ -182,6 +205,11 @@ class HtmlText implements XmlSerializable
         return $this;
     }
 
+    public function getDownloadUrl(): ?string
+    {
+        return $this->downloadUrl;
+    }
+
     /**
      * @param bool|null $linkTracking
      *
@@ -192,6 +220,11 @@ class HtmlText implements XmlSerializable
         $this->linkTracking = $linkTracking;
 
         return $this;
+    }
+
+    public function getLinkTracking(): ?bool
+    {
+        return $this->linkTracking;
     }
 
     /**
@@ -206,6 +239,11 @@ class HtmlText implements XmlSerializable
         return $this;
     }
 
+    public function getViewTracking(): ?bool
+    {
+        return $this->viewTracking;
+    }
+
     /**
      * @param string|null $renderCallback
      *
@@ -216,6 +254,11 @@ class HtmlText implements XmlSerializable
         $this->renderCallback = $renderCallback;
 
         return $this;
+    }
+
+    public function getRenderCallback(): ?string
+    {
+        return $this->renderCallback;
     }
 
     /**
@@ -230,6 +273,11 @@ class HtmlText implements XmlSerializable
         return $this;
     }
 
+    public function getRestProxyUrl(): ?string
+    {
+        return $this->restProxyUrl;
+    }
+
     /**
      * @param string|null $content
      *
@@ -240,5 +288,10 @@ class HtmlText implements XmlSerializable
         $this->content = $content;
 
         return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
     }
 }

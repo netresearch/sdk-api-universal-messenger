@@ -149,92 +149,232 @@ HTML
 
     /**
      * Pins that every getter on the built request mirrors what was set
-     * above. Nothing else in this repo constructs or reads these getters
-     * (the XML serializer reads the same private properties directly via
-     * reflection attributes, bypassing them entirely), so without this,
-     * a getter mismatching its own property (e.g. a rename that breaks
+     * above. The XML serializer reads the same private properties directly
+     * via reflection attributes, bypassing these getters entirely, so a
+     * getter mismatching its own property (e.g. a rename that breaks
      * getTags()/getVChannels()/getFiles(), whose method name already
-     * diverges from the backing property name) would go undetected by
-     * this suite.
+     * diverges from the backing property name) would otherwise go
+     * undetected by this suite.
      */
     private function assertRequestGetters(Event $request): void
     {
-        self::assertSame('MY-CUSTOM-EVENT-ID', $request->getId());
-        self::assertSame('GROUP', $request->getNewsletterGroup());
+        self::assertSame(
+            'MY-CUSTOM-EVENT-ID',
+            $request->getId(),
+        );
+        self::assertSame(
+            'GROUP',
+            $request->getNewsletterGroup(),
+        );
         self::assertTrue($request->getSkipUsedIDs());
-        self::assertSame('john.doe', $request->getCreatedBy());
-        self::assertSame('John Doe', $request->getCreatedByDisplayName());
+        self::assertSame(
+            'john.doe',
+            $request->getCreatedBy(),
+        );
+        self::assertSame(
+            'John Doe',
+            $request->getCreatedByDisplayName(),
+        );
         self::assertFalse($request->getArchive());
         self::assertFalse($request->getArchiveSkipped());
-        self::assertSame(['TAG-1', 'TAG-2', 'TAG-3'], $request->getTags());
+        self::assertSame(
+            ['TAG-1', 'TAG-2', 'TAG-3'],
+            $request->getTags(),
+        );
 
         $destination = $request->getDestination();
-        self::assertInstanceOf(Destination::class, $destination);
-        self::assertSame(['CHANNEL-1', 'CHANNEL-2'], $destination->getChannels());
-        self::assertSame(['V-CHANNEL-1', 'V-CHANNEL-2'], $destination->getVChannels());
-        self::assertSame('language = "de"', $destination->getQuery());
+        self::assertInstanceOf(
+            Destination::class,
+            $destination,
+        );
+        self::assertSame(
+            ['CHANNEL-1', 'CHANNEL-2'],
+            $destination->getChannels(),
+        );
+        self::assertSame(
+            ['V-CHANNEL-1', 'V-CHANNEL-2'],
+            $destination->getVChannels(),
+        );
+        self::assertSame(
+            'language = "de"',
+            $destination->getQuery(),
+        );
 
         $preview = $destination->getPreview();
-        self::assertInstanceOf(Preview::class, $preview);
-        self::assertSame('service', $preview->getService());
-        self::assertInstanceOf(BaseEntry::class, $preview->getBaseEntry());
-        self::assertSame('test@example.org', $preview->getBaseEntry()->getEmail());
+        self::assertInstanceOf(
+            Preview::class,
+            $preview,
+        );
+        self::assertSame(
+            'service',
+            $preview->getService(),
+        );
+        self::assertInstanceOf(
+            BaseEntry::class,
+            $preview->getBaseEntry(),
+        );
+        self::assertSame(
+            'test@example.org',
+            $preview->getBaseEntry()->getEmail(),
+        );
 
         $date = $request->getDate();
-        self::assertInstanceOf(Date::class, $date);
-        self::assertSame('2024-12-31', $date->getValue());
-        self::assertSame('yyyy-MM-dd', $date->getFormat());
+        self::assertInstanceOf(
+            Date::class,
+            $date,
+        );
+        self::assertSame(
+            '2024-12-31',
+            $date->getValue(),
+        );
+        self::assertSame(
+            'yyyy-MM-dd',
+            $date->getFormat(),
+        );
 
         $data = $request->getData();
-        self::assertInstanceOf(Data::class, $data);
-        self::assertSame('jane.dow@example.org', $data->getMailto());
-        self::assertSame('Mail message to sent', $data->getMessage());
+        self::assertInstanceOf(
+            Data::class,
+            $data,
+        );
+        self::assertSame(
+            'jane.dow@example.org',
+            $data->getMailto(),
+        );
+        self::assertSame(
+            'Mail message to sent',
+            $data->getMessage(),
+        );
 
         $email = $data->getEmail();
-        self::assertInstanceOf(Email::class, $email);
-        self::assertSame('Subject', $email->getSubject());
-        self::assertSame('https://example.org/', $email->getBaseUrl());
-        self::assertSame('https://download.example.org/', $email->getDownloadUrl());
-        self::assertSame('John Doe <john.doe@example.org>', $email->getSender());
-        self::assertSame('john.doe@example.org', $email->getReplyto());
-        self::assertSame('John Doe <john.doe@example.org>', $email->getEnvelopeFrom());
-        self::assertSame('off', $email->getTrackingMode());
+        self::assertInstanceOf(
+            Email::class,
+            $email,
+        );
+        self::assertSame(
+            'Subject',
+            $email->getSubject(),
+        );
+        self::assertSame(
+            'https://example.org/',
+            $email->getBaseUrl(),
+        );
+        self::assertSame(
+            'https://download.example.org/',
+            $email->getDownloadUrl(),
+        );
+        self::assertSame(
+            'John Doe <john.doe@example.org>',
+            $email->getSender(),
+        );
+        self::assertSame(
+            'john.doe@example.org',
+            $email->getReplyto(),
+        );
+        self::assertSame(
+            'John Doe <john.doe@example.org>',
+            $email->getEnvelopeFrom(),
+        );
+        self::assertSame(
+            'off',
+            $email->getTrackingMode(),
+        );
         self::assertFalse($email->getObeyPreferHtml());
         self::assertTrue($email->getSendBothParts());
 
         $htmltext = $email->getHtmltext();
-        self::assertInstanceOf(HtmlText::class, $htmltext);
-        self::assertSame('https://html.example.org/', $htmltext->getBaseUrl());
-        self::assertSame('https://html.download.example.org/', $htmltext->getDownloadUrl());
-        self::assertSame('https://html.proxy.example.org/', $htmltext->getRestProxyUrl());
-        self::assertSame('UTF-8', $htmltext->getCharset());
+        self::assertInstanceOf(
+            HtmlText::class,
+            $htmltext,
+        );
+        self::assertSame(
+            'https://html.example.org/',
+            $htmltext->getBaseUrl(),
+        );
+        self::assertSame(
+            'https://html.download.example.org/',
+            $htmltext->getDownloadUrl(),
+        );
+        self::assertSame(
+            'https://html.proxy.example.org/',
+            $htmltext->getRestProxyUrl(),
+        );
+        self::assertSame(
+            'UTF-8',
+            $htmltext->getCharset(),
+        );
         self::assertFalse($htmltext->getInline());
-        self::assertStringContainsString('Hello World!', (string) $htmltext->getContent());
-        self::assertSame('all', $htmltext->getEmbedImages());
+        self::assertStringContainsString(
+            'Hello World!',
+            (string) $htmltext->getContent(),
+        );
+        self::assertSame(
+            'all',
+            $htmltext->getEmbedImages(),
+        );
         self::assertFalse($htmltext->getLinkTracking());
         self::assertFalse($htmltext->getViewTracking());
-        self::assertSame('htmlCallbackMethod', $htmltext->getRenderCallback());
+        self::assertSame(
+            'htmlCallbackMethod',
+            $htmltext->getRenderCallback(),
+        );
 
         $plaintext = $email->getPlaintext();
-        self::assertInstanceOf(PlainText::class, $plaintext);
-        self::assertSame('https://plain.example.org/', $plaintext->getBaseUrl());
-        self::assertSame('https://plain.download.example.org/', $plaintext->getDownloadUrl());
-        self::assertSame('UTF-8', $plaintext->getCharset());
+        self::assertInstanceOf(
+            PlainText::class,
+            $plaintext,
+        );
+        self::assertSame(
+            'https://plain.example.org/',
+            $plaintext->getBaseUrl(),
+        );
+        self::assertSame(
+            'https://plain.download.example.org/',
+            $plaintext->getDownloadUrl(),
+        );
+        self::assertSame(
+            'UTF-8',
+            $plaintext->getCharset(),
+        );
         self::assertTrue($plaintext->getInline());
-        self::assertSame('Hello World!', $plaintext->getContent());
+        self::assertSame(
+            'Hello World!',
+            $plaintext->getContent(),
+        );
         self::assertFalse($plaintext->getLinkTracking());
-        self::assertSame('plainCallbackMethod', $plaintext->getRenderCallback());
+        self::assertSame(
+            'plainCallbackMethod',
+            $plaintext->getRenderCallback(),
+        );
 
         $files = $email->getFiles();
-        self::assertCount(2, $files);
-        self::assertContainsOnlyInstancesOf(File::class, $files);
-        self::assertSame('FILE CONTENT', $files[0]->getContent());
-        self::assertSame('inline', $files[0]->getDisposition());
+        self::assertCount(
+            2,
+            $files,
+        );
+        self::assertContainsOnlyInstancesOf(
+            File::class,
+            $files,
+        );
+        self::assertSame(
+            'FILE CONTENT',
+            $files[0]->getContent(),
+        );
+        self::assertSame(
+            'inline',
+            $files[0]->getDisposition(),
+        );
         self::assertTrue($files[0]->getInline());
-        self::assertSame('logo.png', $files[0]->getName());
+        self::assertSame(
+            'logo.png',
+            $files[0]->getName(),
+        );
         self::assertNull($files[1]->getContent());
         self::assertNull($files[1]->getDisposition());
         self::assertFalse($files[1]->getInline());
-        self::assertSame('https://example.org/test.png', $files[1]->getName());
+        self::assertSame(
+            'https://example.org/test.png',
+            $files[1]->getName(),
+        );
     }
 }

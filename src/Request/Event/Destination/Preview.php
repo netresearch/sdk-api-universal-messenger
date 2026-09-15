@@ -53,7 +53,7 @@ class Preview implements XmlSerializable
     }
 
     /**
-     * @return string
+     * @return string The preview service (currently only "litmus" is possible)
      */
     public function getService(): string
     {

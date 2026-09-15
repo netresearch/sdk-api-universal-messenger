@@ -53,7 +53,7 @@ class Date implements XmlSerializable
     }
 
     /**
-     * @return string
+     * @return string The date/time value
      */
     public function getValue(): string
     {

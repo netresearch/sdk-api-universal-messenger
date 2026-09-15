@@ -175,7 +175,7 @@ class HtmlText implements XmlSerializable
     }
 
     /**
-     * @return string
+     * @return string The behavior for embedding images ("all", "byPath" or "none")
      */
     public function getEmbedImages(): string
     {

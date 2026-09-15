@@ -371,7 +371,7 @@ class Email implements XmlSerializable
     }
 
     /**
-     * @return File[]
+     * @return File[] Information about the attachments
      */
     public function getFiles(): array
     {

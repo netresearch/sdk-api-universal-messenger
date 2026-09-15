@@ -85,7 +85,7 @@ class Destination implements XmlSerializable
     }
 
     /**
-     * @return string[]
+     * @return string[] The channels the newsletter should be sent to
      */
     public function getChannels(): array
     {
@@ -117,7 +117,7 @@ class Destination implements XmlSerializable
     }
 
     /**
-     * @return string[]
+     * @return string[] The virtual channels the newsletter should be sent to
      */
     public function getVChannels(): array
     {

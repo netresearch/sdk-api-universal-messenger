@@ -138,6 +138,9 @@ class Destination implements XmlSerializable
         return $this;
     }
 
+    /**
+     * @return string|null The query used to restrict or define the recipients of the newsletter
+     */
     public function getQuery(): ?string
     {
         return $this->query;
@@ -155,6 +158,9 @@ class Destination implements XmlSerializable
         return $this;
     }
 
+    /**
+     * @return Preview|null The inbox preview service configuration
+     */
     public function getPreview(): ?Preview
     {
         return $this->preview;

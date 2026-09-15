@@ -72,6 +72,9 @@ class Date implements XmlSerializable
         return $this;
     }
 
+    /**
+     * @return string|null The date/time format between tags, defaults to "dd.MM.yyyy HH:mm:ss"
+     */
     public function getFormat(): ?string
     {
         return $this->format;

@@ -45,6 +45,9 @@ class BaseEntry implements XmlSerializable
         return $this;
     }
 
+    /**
+     * @return string|null The email address uniquely identifying an entry in Universal Messenger, to personalize the preview
+     */
     public function getEmail(): ?string
     {
         return $this->email;

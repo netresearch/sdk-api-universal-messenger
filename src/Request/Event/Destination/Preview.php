@@ -72,6 +72,9 @@ class Preview implements XmlSerializable
         return $this;
     }
 
+    /**
+     * @return BaseEntry|null The entry used to uniquely identify a recipient for personalizing the preview
+     */
     public function getBaseEntry(): ?BaseEntry
     {
         return $this->baseEntry;

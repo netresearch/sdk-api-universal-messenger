@@ -127,6 +127,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return string|null The unique identifier (if no ID was specified, a random ID will be generated)
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -142,6 +145,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return string|null The newsletter series this newsletter is assigned to
+     */
     public function getNewsletterGroup(): ?string
     {
         return $this->newsletterGroup;
@@ -157,6 +163,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return bool|null TRUE (default) if the sending should be canceled if there is already a newsletter with the same event ID in the archive
+     */
     public function getSkipUsedIDs(): ?bool
     {
         return $this->skipUsedIDs;
@@ -172,6 +181,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return bool|null Whether skipped newsletters are still saved in the archive with the status "Cancelled"
+     */
     public function getArchiveSkipped(): ?bool
     {
         return $this->archiveSkipped;
@@ -187,6 +199,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return bool|null FALSE if the newsletter should not be saved in the archive
+     */
     public function getArchive(): ?bool
     {
         return $this->archive;
@@ -202,6 +217,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return string|null The username of the user who triggered the newsletter dispatch
+     */
     public function getCreatedBy(): ?string
     {
         return $this->createdBy;
@@ -217,6 +235,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return string|null The display username of the user who triggered the newsletter dispatch
+     */
     public function getCreatedByDisplayName(): ?string
     {
         return $this->createdByDisplayName;
@@ -232,6 +253,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return Destination|null The destination(s) the newsletter is addressed to
+     */
     public function getDestination(): ?Destination
     {
         return $this->destination;
@@ -247,6 +271,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return Data|null The content to be sent in the newsletter
+     */
     public function getData(): ?Data
     {
         return $this->data;
@@ -262,6 +289,9 @@ class Event implements RequestInterface
         return $this;
     }
 
+    /**
+     * @return Date|null The sending time for the newsletter, or NULL for immediate sending
+     */
     public function getDate(): ?Date
     {
         return $this->date;

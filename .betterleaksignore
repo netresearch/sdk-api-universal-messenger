@@ -1,0 +1,3 @@
+# Not a credential: a made-up fixture string that the test of the Authorization header
+# redaction passed in the original test commit (since replaced in 485fbb0).
+7439fecf0b7343d0a0d84de8a31a3ef603039dea:test/Http/Formatter/RedactAuthorizationHeaderFormatterTest.php:generic-api-key:29

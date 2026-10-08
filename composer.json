@@ -33,7 +33,7 @@
         "ext-simplexml": "*",
         "ext-xmlwriter": "*",
         "magicsunday/jsonmapper": "^2.4.0",
-        "magicsunday/xmlmapper": "^2.0 || ^3.0",
+        "magicsunday/xmlmapper": "^2.0 || ^3.0 || ^4.0",
         "php-http/client-common": "^2.7.0",
         "php-http/discovery": "^1.19.0",
         "php-http/httplug": "^2.4.0",

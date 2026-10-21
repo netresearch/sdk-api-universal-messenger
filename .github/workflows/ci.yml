@@ -3,6 +3,7 @@ name: CI
 on:
     push:
     pull_request:
+    merge_group:
 
 # Least-privilege default for the GITHUB_TOKEN; the calling job grants the
 # `contents: read` the reusable requires (a reusable cannot obtain a

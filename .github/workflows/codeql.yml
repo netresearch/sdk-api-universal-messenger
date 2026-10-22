@@ -1,0 +1,28 @@
+name: CodeQL
+
+# Replaces CodeQL default setup, which never analyses pull requests from
+# forks: with the code_scanning rule of the merge-queue ruleset, every outside
+# contribution stayed blocked. Not part of the php-module template, which
+# relies on default setup; default setup must stay disabled here, or GitHub
+# refuses the uploads of this workflow.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  merge_group:
+  schedule:
+    - cron: '30 4 * * 1'
+
+permissions: {}
+
+jobs:
+  codeql:
+    uses: netresearch/.github/.github/workflows/codeql.yml@main
+    with:
+      languages: auto
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
